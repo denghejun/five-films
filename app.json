@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "rn-expo-ts-stencil",
+    "description": "No description",
+    "slug": "rn-expo-ts-stencil",
+    "privacy": "public",
+    "sdkVersion": "20.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./src/assets/icons/app-icon.png",
+    "notification": {
+      "icon": "./src/assets/icons/notification-icon.png",
+      "color": "#000000"
+    },
+    "loading": {
+      "icon": "./src/assets/icons/loading-icon.png",
+      "hideExponentText": false
+    },
+    "packagerOpts": {
+      "assetExts": [
+        "ttf"
+      ]
+    },
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
