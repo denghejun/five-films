@@ -18,6 +18,7 @@
       "hideExponentText": false
     },
     "packagerOpts": {
+      "config": "rn-cli.config.js",
       "assetExts": [
         "ttf"
       ]
