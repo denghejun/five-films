@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "rn-expo-ts-stencil",
+    "name": "five-films",
     "description": "No description",
-    "slug": "rn-expo-ts-stencil",
+    "slug": "five-films",
     "privacy": "public",
     "sdkVersion": "20.0.0",
     "version": "1.0.0",
