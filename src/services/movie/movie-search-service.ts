@@ -4,10 +4,8 @@ import Expo from 'expo'
 import { MovieSearchRequest, MovieSearchResponse } from './models'
 
 export default class MovieSearchService extends MovieBaseService {
-    protected getAPIOption(): APIOption {
-        let option: APIOption = super.getAPIOption();
-        option.baseUri = Expo.Constants.manifest.extra.api.movie.searchServiceUri;
-        return option;
+    protected getBaseUri(): string {
+        return Expo.Constants.manifest.extra.api.movie.searchServiceUri;
     }
 
     public search(request: MovieSearchRequest): Promise<MovieSearchResponse> {

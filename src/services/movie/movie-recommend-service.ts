@@ -5,10 +5,8 @@ import { MovieRecommendRequest, MovieRecommendResponse } from './models'
 
 
 export default class MovieRecommendService extends MovieBaseService {
-    protected getAPIOption(): APIOption {
-        let option: APIOption = super.getAPIOption();
-        option.baseUri = Expo.Constants.manifest.extra.api.movie.recommendServiceUri;
-        return option;
+    protected getBaseUri(): string {
+        return Expo.Constants.manifest.extra.api.movie.recommendServiceUri;
     }
 
     public getRecommendMovies(request: MovieRecommendRequest): Promise<MovieRecommendResponse> {
