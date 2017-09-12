@@ -1,6 +1,6 @@
 import Expo from 'expo'
 import MovieBaseService from './movie-base-service'
-import APIOption from '../core/api-option'
+import { APIOption } from '../core'
 import { MovieRecommendRequest, MovieRecommendResponse } from './models'
 
 

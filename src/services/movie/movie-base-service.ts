@@ -1,7 +1,6 @@
 import Expo from 'expo'
 import merge from 'merge/merge'
-import APIBase from '../core/api-base'
-import APIOption from '../core/api-option'
+import { APIBase, APIOption } from '../core'
 
 export default abstract class MovieBaseService extends APIBase<APIOption> {
     protected getAPIOption(): APIOption {

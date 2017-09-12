@@ -1,4 +1,4 @@
 export default interface APIOption {
-  baseUri: string;
-  apiKey: string;
+    readonly baseUri: string;
+    readonly apiKey: string;
 }
