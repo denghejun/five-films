@@ -12,7 +12,8 @@ export default class MovieRecommendService extends MovieBaseService {
     public getRecommendMovies(request: MovieRecommendRequest): Promise<MovieRecommendResponse> {
         return this.get<MovieRecommendRequest, MovieRecommendResponse>(request)
             .then((response: MovieRecommendResponse): (Promise<MovieRecommendResponse> | MovieRecommendResponse) => {
-                return (response === undefined || response.error_code !== 0) ? Promise.reject(response) : response;
+                return (response === undefined || response.error_code !== 0) ?
+                    Promise.reject<MovieRecommendResponse>(new Error(response.reason)) : response;
             });
     }
 }

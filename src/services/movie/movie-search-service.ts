@@ -11,7 +11,8 @@ export default class MovieSearchService extends MovieBaseService {
     public search(request: MovieSearchRequest): Promise<MovieSearchResponse> {
         return this.get<MovieSearchRequest, MovieSearchResponse>(request)
             .then((response: MovieSearchResponse): (Promise<MovieSearchResponse> | MovieSearchResponse) => {
-                return (response === undefined || response.error_code !== 0) ? Promise.reject(response) : response;
+                return (response === undefined || response.error_code !== 0) ?
+                    Promise.reject<MovieSearchResponse>(new Error(response.reason)) : response;
             });
     }
 }
