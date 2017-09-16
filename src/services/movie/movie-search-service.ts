@@ -1,6 +1,6 @@
 import MovieBaseService from './movie-base-service'
 import { APIOption } from '../core'
-import Expo from 'expo'
+import * as Expo from 'expo'
 import { MovieSearchRequest, MovieSearchResponse } from './models'
 
 export default class MovieSearchService extends MovieBaseService {

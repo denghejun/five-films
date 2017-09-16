@@ -1,5 +1,5 @@
 import { APIBase, APIOption } from '../core'
-import Expo from 'expo'
+import * as Expo from 'expo'
 import merge from 'merge/merge'
 import { LocationSearchRequest } from './models'
 

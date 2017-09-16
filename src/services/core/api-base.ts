@@ -1,11 +1,12 @@
-import RNFetch from 'react-native-fetch-blob'
+// import RNFetch from 'react-native-fetch-blob'
 import APIOption from './api-option'
 import RESTApiClient from './rest-api-client'
 
-export default abstract class APIBase<T extends APIOption> implements RESTApiClient {
+export default abstract class APIBase<T extends APIOption> extends RESTApiClient {
     protected option: T;
     protected abstract getAPIOption(): T;
     constructor() {
+        super();
         this.option = this.getAPIOption();
     }
 
@@ -22,25 +23,23 @@ export default abstract class APIBase<T extends APIOption> implements RESTApiCli
         return request;
     }
 
-    public get<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
+    protected get<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
         request = this.before && this.before(request);
         let uri = this.option.baseUri + '?' + this.generateQueryParameters(request);
-        return RNFetch.fetch('GET', encodeURI(uri))
+
+        return fetch(encodeURI(uri))
             .then(response => response.json()) as Promise<TResponse>;
     }
 
-    public post<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
-        return RNFetch.fetch('POST', encodeURI(this.option.baseUri))
-            .then(response => response.json()) as Promise<TResponse>;
+    protected post<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
+        return this.get(request);
     }
 
-    public put<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
-        return RNFetch.fetch('PUT', encodeURI(this.option.baseUri))
-            .then(response => response.json()) as Promise<TResponse>;
+    protected put<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
+      return this.get(request);
     }
 
-    public delete<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
-        return RNFetch.fetch('DELETE', encodeURI(this.option.baseUri))
-            .then(response => response.json()) as Promise<TResponse>;
+    protected delete<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
+      return this.get(request);
     }
 }

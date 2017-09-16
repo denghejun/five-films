@@ -1,4 +1,4 @@
-import Expo from 'expo'
+import * as Expo from 'expo'
 import merge from 'merge/merge'
 import { APIBase, APIOption } from '../core'
 

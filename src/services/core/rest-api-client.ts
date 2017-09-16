@@ -1,6 +1,6 @@
-export default interface RESTApiClient {
-    get<TRequest, TResponse>(request: TRequest): Promise<TResponse>;
-    post<TRequest, TResponse>(request: TRequest): Promise<TResponse>;
-    put<TRequest, TResponse>(request: TRequest): Promise<TResponse>;
-    delete<TRequest, TResponse>(request: TRequest): Promise<TResponse>;
+export default abstract class RESTApiClient {
+    protected abstract get<TRequest, TResponse>(request: TRequest): Promise<TResponse>;
+    protected abstract post<TRequest, TResponse>(request: TRequest): Promise<TResponse>;
+    protected abstract put<TRequest, TResponse>(request: TRequest): Promise<TResponse>;
+    protected abstract delete<TRequest, TResponse>(request: TRequest): Promise<TResponse>;
 }
