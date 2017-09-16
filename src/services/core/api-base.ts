@@ -27,8 +27,9 @@ export default abstract class APIBase<T extends APIOption> extends RESTApiClient
         request = this.before && this.before(request);
         let uri = this.option.baseUri + '?' + this.generateQueryParameters(request);
 
-        return fetch(encodeURI(uri))
-            .then(response => response.json()) as Promise<TResponse>;
+        return fetch(encodeURI(uri), { method: 'GET' }).then(response => {
+            return response.json();
+        });
     }
 
     protected post<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
@@ -36,10 +37,10 @@ export default abstract class APIBase<T extends APIOption> extends RESTApiClient
     }
 
     protected put<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
-      return this.get(request);
+        return this.get(request);
     }
 
     protected delete<TRequest, TResponse>(request: TRequest): Promise<TResponse> {
-      return this.get(request);
+        return this.get(request);
     }
 }
