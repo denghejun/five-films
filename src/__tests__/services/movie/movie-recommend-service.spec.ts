@@ -4,6 +4,12 @@ import * as renderer from 'react-test-renderer';
 import MovieRecommendService from '../../../services/movie/movie-recommend-service'
 import { MovieRecommendRequest, MovieRecommendResponse } from '../../../services/movie/models'
 import Error from '../../../core/error-customize'
+import * as Expo from 'expo'
+
+beforeAll(()=>{
+  const appConfig = require('../../../../app.json');
+  Expo.Constants.manifest.extra = appConfig.expo.extra;
+})
 
 it('[movie-recommend-service: 01] should get recommend movie response successfully when giving valid city name',
     async () => {

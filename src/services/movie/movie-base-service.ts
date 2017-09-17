@@ -6,8 +6,7 @@ export default abstract class MovieBaseService extends APIBase<APIOption> {
     protected getAPIOption(): APIOption {
         return {
             baseUri: this.getBaseUri(),
-            apiKey: '07d77e2e7f3ad6828cb78f89cdb8a644'
-            // apiKey: Expo.Constants.manifest.extra.api.movie.apiKey,
+            apiKey: Expo.Constants.manifest.extra.api.movie.apiKey,
         } as APIOption;
     }
 

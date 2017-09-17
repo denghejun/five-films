@@ -6,8 +6,7 @@ import Error from '../../core/error-customize'
 
 export default class MovieRecommendService extends MovieBaseService {
     protected getBaseUri(): string {
-        // return Expo.Constants.manifest.extra.api.movie.recommendServiceUri;
-        return "https://op.juhe.cn/onebox/movie/pmovie";
+        return Expo.Constants.manifest.extra.api.movie.recommendServiceUri;
     }
 
     public getRecommendMovies(request: MovieRecommendRequest): Promise<MovieRecommendResponse> {
