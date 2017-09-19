@@ -6,12 +6,16 @@
   "license": "",
   "main": "bootstrap.js",
   "scripts": {
-    "test": "node ./node_modules/jest/bin/jest.js --watch"
+    "test": "node ./node_modules/jest/bin/jest.js --watch",
+    "init": "cd src/core && npm link && cd ../../ && npm link @five-films/core"
   },
   "jest": {
     "preset": "jest-expo-ts",
     "setupFiles": [
       "./jest-setup.js"
+    ],
+    "transformIgnorePatterns": [
+      "!node_modules/@five-films/"
     ]
   },
   "dependencies": {

@@ -2,6 +2,7 @@ import MovieBaseService from './movie-base-service'
 import { APIOption } from '../core'
 import * as Expo from 'expo'
 import { MovieSearchRequest, MovieSearchResponse } from './models'
+import { Error } from '@five-films/core'
 
 export default class MovieSearchService extends MovieBaseService {
     protected getBaseUri(): string {
@@ -9,10 +10,13 @@ export default class MovieSearchService extends MovieBaseService {
     }
 
     public search(request: MovieSearchRequest): Promise<MovieSearchResponse> {
-        return this.get<MovieSearchRequest, MovieSearchResponse>(request)
-            .then((response: MovieSearchResponse): (Promise<MovieSearchResponse> | MovieSearchResponse) => {
-                return (response === undefined || response.error_code !== 0) ?
-                    Promise.reject<MovieSearchResponse>(new Error(response.reason)) : response;
-            });
+        return this.get<MovieSearchRequest, MovieSearchResponse>(request).then((response: MovieSearchResponse) => {
+            if (response === undefined || response.error_code !== 0) {
+                return Promise.reject<MovieSearchResponse>(new Error<MovieSearchResponse>(response.reason, response));
+            }
+            else {
+                return response;
+            }
+        });
     }
 }

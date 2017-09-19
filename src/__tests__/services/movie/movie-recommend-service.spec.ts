@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as renderer from 'react-test-renderer';
 import MovieRecommendService from '../../../services/movie/movie-recommend-service'
 import { MovieRecommendRequest, MovieRecommendResponse } from '../../../services/movie/models'
-import Error from '../../../core/error-customize'
+import { Error } from '@five-films/core'
 import * as Expo from 'expo'
 
 beforeAll(()=>{

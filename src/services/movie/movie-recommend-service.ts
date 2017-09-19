@@ -2,7 +2,7 @@ import * as Expo from 'expo'
 import MovieBaseService from './movie-base-service'
 import { APIOption } from '../core'
 import { MovieRecommendRequest, MovieRecommendResponse } from './models'
-import Error from '../../core/error-customize'
+import { Error } from '@five-films/core'
 
 export default class MovieRecommendService extends MovieBaseService {
     protected getBaseUri(): string {
