@@ -1,0 +1,3 @@
+export const TYPE_BOOTSTRAPPER = {
+  BOOTSTRAPPER: Symbol('BOOTSTRAPPER')
+}

@@ -1,22 +1,26 @@
 import MovieBaseService from './movie-base-service'
 import { APIOption } from '../core'
 import * as Expo from 'expo'
-import { MovieSearchRequest, MovieSearchResponse } from './models'
-import { Error } from '@five-films/core'
+import { Movie, Common } from '@five-films/interfaces'
+import { injectable } from 'inversify'
 
-export default class MovieSearchService extends MovieBaseService {
-    protected getBaseUri(): string {
-        return Expo.Constants.manifest.extra.api.movie.searchServiceUri;
-    }
+@injectable()
+export class MovieSearchService extends MovieBaseService implements Movie.MovieSearchService {
+  protected getBaseUri(): string {
+    return Expo.Constants.manifest.extra.api.movie.searchServiceUri;
+  }
 
-    public search(request: MovieSearchRequest): Promise<MovieSearchResponse> {
-        return this.get<MovieSearchRequest, MovieSearchResponse>(request).then((response: MovieSearchResponse) => {
-            if (response === undefined || response.error_code !== 0) {
-                return Promise.reject<MovieSearchResponse>(new Error<MovieSearchResponse>(response.reason, response));
-            }
-            else {
-                return response;
-            }
-        });
-    }
+  public search(request: Movie.MovieSearchRequest):
+    Promise<Movie.MovieSearchResponse> {
+    return this.get<Movie.MovieSearchRequest, Movie.MovieSearchResponse>(request).
+      then((response: Movie.MovieSearchResponse) => {
+        if (response === undefined || response.error_code !== 0) {
+          return Promise.reject<Movie.MovieSearchResponse>(
+            new Common.Error<Movie.MovieSearchResponse>(response.reason, response));
+        }
+        else {
+          return response;
+        }
+      });
+  }
 }

@@ -1,7 +1,9 @@
 // import RNFetch from 'react-native-fetch-blob'
 import APIOption from './api-option'
 import RESTApiClient from './rest-api-client'
+import { injectable } from 'inversify'
 
+@injectable()
 export default abstract class APIBase<T extends APIOption> extends RESTApiClient {
     protected option: T;
     protected abstract getAPIOption(): T;
