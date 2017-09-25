@@ -3,16 +3,15 @@ import * as Expo from 'expo'
 import * as React from 'react'
 import * as renderer from 'react-test-renderer';
 import { Movie, ServiceType } from '@five-films/interfaces'
-import { Container } from '@five-films/bootstrapper'
+import { AppBootstrapper, Container } from '@five-films/bootstrapper'
 
 beforeAll(() => {
-  const appConfig = require('../../../../app.json');
-  Expo.Constants.manifest.extra = appConfig.expo.extra;
+  AppBootstrapper.startup();
 })
 
 it('[movie-search-service: 01] should get a valid movie when giving valid movie name',
   async () => {
-    const service: Movie.MovieSearchService = Container.get<Movie.MovieSearchService>(ServiceType.TYPE_MOVIE.SEARCH);
+    const service: Movie.MovieSearchService = AppBootstrapper.Instance.container.get<Movie.MovieSearchService>(ServiceType.TYPE_MOVIE.SEARCH);
     await service.search(<Movie.MovieSearchRequest>{ q: '猫和老鼠' }).
       then((response: Movie.MovieSearchResponse) => {
         expect(response).not.toBeUndefined();

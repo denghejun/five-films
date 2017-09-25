@@ -3,11 +3,10 @@ import * as React from 'react'
 import * as renderer from 'react-test-renderer';
 import * as Expo from 'expo'
 import { Movie, Common, ServiceType } from '@five-films/interfaces'
-import { Container } from '@five-films/bootstrapper'
+import { AppBootstrapper, Container } from '@five-films/bootstrapper'
 
 beforeAll(() => {
-  const appConfig = require('../../../../app.json');
-  Expo.Constants.manifest.extra = appConfig.expo.extra;
+  AppBootstrapper.startup();
 })
 
 it('[movie-recommend-service: 01] should get recommend movie response successfully when giving valid city name',

@@ -1,15 +1,16 @@
 import "reflect-metadata";
 import { Container, inject, injectable } from 'inversify'
-import { Module, ServiceType } from '@five-films/interfaces'
+import { Module, ServiceType, Common } from '@five-films/interfaces'
 import * as React from 'react'
 import * as Expo from 'expo';
 
 @injectable()
 export abstract class Bootstrapper {
-  protected readonly container: Container = new Container();
+  public readonly container: Container = new Container();
   protected modules: Module.ModuleEntity[];
   protected abstract registerModules(): Module.ModuleEntity[];
   protected abstract registerMainView(): any;
+
   private getModuleTypes(): symbol[] {
     const types: symbol[] = [];
     if (this.modules != null) {
@@ -51,8 +52,13 @@ export abstract class Bootstrapper {
     }
   }
 
+  protected registerOthers(container: Container): void {
+    container.bind<Common.Bootstrapper>(ServiceType.TYPE_BOOTSTRAPPER.BOOTSTRAPPER).toConstantValue(this);
+  }
+
   public start(): Container {
     this.initModules();
+    this.registerOthers(this.container);
     Expo.registerRootComponent(this.registerMainView());
     return this.container;
   }
