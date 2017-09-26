@@ -1,7 +1,6 @@
 import 'react-native'
 import * as React from 'react'
 import * as renderer from 'react-test-renderer';
-import * as Expo from 'expo'
 import { Movie, Common, ServiceType } from '@five-films/interfaces'
 import { AppBootstrapper, Container } from '@five-films/bootstrapper'
 
@@ -9,23 +8,38 @@ beforeAll(() => {
   AppBootstrapper.startup();
 })
 
-it('[movie-recommend-service: 01] should get recommend movie response successfully when giving valid city name',
+it('[movie-recommend-service : 01] should get recommend movie response successfully when giving valid city name',
   async () => {
+    // given
+    const q: Movie.MovieRecommendRequest = { city: '成都' };
+
+    // when
     const service: Movie.MovieRecommendService = Container.get<Movie.MovieRecommendService>(ServiceType.TYPE_MOVIE.RECOMMEND);
-    await service.getRecommendMovies({ city: '成都' }).then(response => {
-      expect(response).not.toBeUndefined();
-      expect(response.reason).toBe('查询成功');
-      expect(response.error_code).toBe(0);
-      expect(response.result).not.toBeUndefined();
-    });
+    const response = await service.getRecommendMovies(q);
+
+    // then
+    expect(response).not.toBeUndefined();
+    expect(response.reason).toBe('查询成功');
+    expect(response.error_code).toBe(0);
+    expect(response.result).not.toBeUndefined();
   })
 
-it('[movie-recommend-service: 02] shouldn\'t get any recommend movie response when giving invalid city name',
+it('[movie-recommend-service : 02] shouldn\'t get any recommend movie response when giving invalid city name',
   async () => {
+    // given
+    const q: Movie.MovieRecommendRequest = { city: 'InvalidCityName' };
+
+    // when
     const service: Movie.MovieRecommendService = Container.get<Movie.MovieRecommendService>(ServiceType.TYPE_MOVIE.RECOMMEND);
-    await service.getRecommendMovies({ city: 'InvalidCityName' }).
+
+    // then
+    const response = await service.getRecommendMovies(q).
       catch((error: Common.Error<Movie.MovieRecommendResponse>) => {
-        error.context.error_code === 209405 ? assertErrorWhenNoMovieFound(error) : assertErrorWhenRequestTimeOverhead(error);
+        if (error.context.error_code === 209405) {
+          assertErrorWhenNoMovieFound(error)
+        } else {
+          assertErrorWhenRequestTimeOverhead(error)
+        }
       });
   })
 

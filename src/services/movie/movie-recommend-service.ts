@@ -10,16 +10,14 @@ export class MovieRecommendService extends MovieBaseService implements Movie.Mov
     return Expo.Constants.manifest.extra.api.movie.recommendServiceUri;
   }
 
-  public getRecommendMovies(request: Movie.MovieRecommendRequest):
-    Promise<Movie.MovieRecommendResponse> {
-    return this.get<Movie.MovieRecommendRequest, Movie.MovieRecommendResponse>(request).
-      then((response: Movie.MovieRecommendResponse) => {
-        if (response === undefined || response.error_code !== 0) {
-          return Promise.reject<Movie.MovieRecommendResponse>(new Common.Error<Movie.MovieRecommendResponse>(response.reason, response));
-        }
-        else {
-          return response;
-        }
-      });
+  public async getRecommendMovies(request: Movie.MovieRecommendRequest): Promise<Movie.MovieRecommendResponse> {
+    const response: Movie.MovieRecommendResponse = await this.get<Movie.MovieRecommendRequest, Movie.MovieRecommendResponse>(request);
+    if (response === undefined || response.error_code !== 0) {
+      return Promise.reject<Movie.MovieRecommendResponse>(
+        new Common.Error<Movie.MovieRecommendResponse>(response.reason, response));
+    }
+    else {
+      return response;
+    }
   }
 }
