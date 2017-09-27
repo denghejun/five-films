@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@expo/samples": "^2.0.2",
+    "@types/app-root-path": "^1.2.4",
     "expo": "^20.0.0",
     "inversify": "^4.3.0",
     "merge": "^1.2.0",
