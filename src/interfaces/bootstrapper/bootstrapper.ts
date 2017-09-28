@@ -10,7 +10,6 @@ export abstract class Bootstrapper<T extends Module.ModuleProvider> {
   public readonly container: Container = new Container();
   protected modules: Module.ModuleEntity[];
   protected abstract registerModules(): Module.ModuleEntity[] | T;
-  protected abstract registerMainView(): any;
 
   private getModuleTypes(): symbol[] {
     const types: symbol[] = [];
@@ -65,10 +64,10 @@ export abstract class Bootstrapper<T extends Module.ModuleProvider> {
     container.bind<BootstrapperInterfaces.Bootstrapper<T>>(ServiceType.TYPE_BOOTSTRAPPER.BOOTSTRAPPER).toConstantValue(this);
   }
 
-  public start(): Container {
+  public start(mainViewType: new () => React.Component): Container {
     this.initModules();
     this.registerOthers(this.container);
-    Expo.registerRootComponent(this.registerMainView());
+    Expo.registerRootComponent(mainViewType);
     return this.container;
   }
 }

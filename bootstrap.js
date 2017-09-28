@@ -1,2 +1,4 @@
 import { AppBootstrapper } from '@five-films/bootstrapper'
-AppBootstrapper.startup();
+import { App } from './src/App.tsx'
+
+AppBootstrapper.startup(App);
