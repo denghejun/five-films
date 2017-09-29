@@ -1,4 +1,4 @@
-#### Get Started
+#### Get Started Go
 
 #### 1.link/init local app node modules
 ```
