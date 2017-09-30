@@ -5,7 +5,7 @@ import { Movie, ServiceType } from '@five-films/interfaces'
 import { AppBootstrapper, Container } from '@five-films/bootstrapper'
 
 beforeAll(() => {
-  AppBootstrapper.startup();
+  AppBootstrapper.startup(null);
 })
 
 it('[movie-search-service : 01] should get a valid movie when giving valid movie name',

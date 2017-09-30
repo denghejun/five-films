@@ -2,7 +2,7 @@ import { BootstrapperInterfaces, Movie, Module, ServiceType } from '@five-films/
 import { Container, injectable } from 'inversify'
 import { Services } from '@five-films/services'
 import * as React from 'react'
-import ModuleProvider from '~/module.config'
+import ModuleProvider from '../../../module.config'
 
 @injectable()
 export class AppBootstrapper extends BootstrapperInterfaces.Bootstrapper<Module.ModuleProvider> {

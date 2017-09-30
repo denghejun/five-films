@@ -6,7 +6,7 @@ import { AppBootstrapper, Container } from '@five-films/bootstrapper'
 import { Constants, Location, Permissions } from 'expo';
 
 beforeAll(() => {
-  AppBootstrapper.startup();
+  AppBootstrapper.startup(null);
 });
 
 it('[current-city-search : 01] should get a valid city name', async () => {

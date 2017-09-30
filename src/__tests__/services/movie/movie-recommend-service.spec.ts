@@ -5,7 +5,7 @@ import { Movie, Common, ServiceType } from '@five-films/interfaces'
 import { AppBootstrapper, Container } from '@five-films/bootstrapper'
 
 beforeAll(() => {
-  AppBootstrapper.startup();
+  AppBootstrapper.startup(null);
 })
 
 it('[movie-recommend-service : 01] should get recommend movie response successfully when giving valid city name',
