@@ -3,7 +3,7 @@ import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
-import { Container } from '@five-films/bootstrapper'
+import { Container } from 'react-native-modular-bootstrapper'
 import { ServiceType, Movie } from '@five-films/interfaces'
 
 export class App extends React.Component {

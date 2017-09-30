@@ -2,7 +2,7 @@ import 'react-native'
 import * as React from 'react'
 import * as renderer from 'react-test-renderer';
 import { Movie, ServiceType } from '@five-films/interfaces'
-import { AppBootstrapper, Container } from '@five-films/bootstrapper'
+import { AppBootstrapper, Container } from 'react-native-modular-bootstrapper'
 
 beforeAll(() => {
   AppBootstrapper.startup(null);

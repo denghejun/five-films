@@ -1,14 +1,14 @@
 #### Get Started
 
-#### 1.link/init local app node modules
+#### 1. install node modules
+```
+npm install
+```
+
+#### 2.link/init local app node modules
 ```
 npm run init
 
-```
-
-#### 2. install node modules
-```
-npm install
 ```
 
 #### 3. run in expo
