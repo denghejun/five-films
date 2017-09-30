@@ -1,6 +1,3 @@
-import 'react-native'
-import * as React from 'react'
-import * as renderer from 'react-test-renderer';
 import { AppBootstrapper, Container, ServiceLocator, ServiceContract } from '../../../../index'
 
 beforeAll(() => {
