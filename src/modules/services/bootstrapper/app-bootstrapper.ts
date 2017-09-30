@@ -1,7 +1,7 @@
 import { ServiceContract, ServiceLocator } from '../../../interfaces'
 import * as React from 'react'
 import { Container, injectable } from 'inversify'
-import ModuleProvider from '../../../../module.config'
+import ModuleProvider from '../../../../../../module.config'
 
 @injectable()
 export class AppBootstrapper extends ServiceContract.Bootstrapper<ServiceContract.ModuleProvider> {
