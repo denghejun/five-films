@@ -1,11 +1,9 @@
-import { Module, ServiceType } from '@five-films/interfaces'
-import { Services } from '@five-films/services'
+import { ServiceContract, ServiceLocator } from './src/interfaces'
+import { ServiceModule } from './src/modules/'
+import { Container } from 'inversify'
 
-export default class AppModuleProvider implements Module.ModuleProvider {
-  public registerModules(): Module.ModuleEntity[] {
-    return [{
-      type: ServiceType.TYPE_MODULE.MODULE,
-      module: Services.ServiceModule
-    }];
+export default class AppModuleProvider implements ServiceContract.ModuleProvider {
+  public registerModules(): any[] {
+    return [ServiceModule];
   }
 }
