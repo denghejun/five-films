@@ -1,6 +1,6 @@
 // import RNFetch from 'react-native-fetch-blob'
-import APIOption from './api-option'
-import RESTApiClient from './rest-api-client'
+import APIOption from './APIOption'
+import RESTApiClient from './RESTApiClient'
 import { injectable } from 'inversify'
 
 @injectable()

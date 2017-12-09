@@ -1,2 +1,2 @@
-export * from './movie-recommend-service'
-export * from './movie-search-service'
+export * from './MovieRecommendService'
+export * from './MovieSearchService'

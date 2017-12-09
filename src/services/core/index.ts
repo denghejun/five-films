@@ -1,2 +1,2 @@
-export { default as APIBase } from './api-base'
-export { default as APIOption } from './api-option'
+export { default as APIBase } from './APIBase'
+export { default as APIOption } from './APIOption'

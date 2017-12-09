@@ -1,2 +1,2 @@
-export { default as Error } from './error-customize'
-export * from './browser-service'
+export { default as Error } from './ErrorWithContext'
+export * from './BrowserService'

@@ -1,5 +1,5 @@
 import { StackNavigator } from 'react-navigation';
-import { MainTabNavigator } from './main-tab-navigator';
+import { MainTabNavigator } from './MainTabNavigator';
 
 export const RootStackNavigator = StackNavigator({
   Main: {

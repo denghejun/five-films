@@ -1,5 +1,5 @@
 import * as Expo from 'expo'
-import MovieBaseService from './movie-base-service'
+import MovieBaseService from './MovieBaseService'
 import { APIOption } from '../core'
 import { Movie, Common } from '@five-films/interfaces'
 import { injectable } from 'inversify'

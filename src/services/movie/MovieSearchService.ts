@@ -1,4 +1,4 @@
-import MovieBaseService from './movie-base-service'
+import MovieBaseService from './MovieBaseService'
 import { APIOption } from '../core'
 import * as Expo from 'expo'
 import { Movie, Common } from '@five-films/interfaces'

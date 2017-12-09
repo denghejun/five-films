@@ -1,4 +1,4 @@
-import LocationBaseService from './location-base-service'
+import LocationBaseService from './LocatonBaseService'
 import { Location, Common } from '@five-films/interfaces'
 import * as Expo from 'expo'
 
