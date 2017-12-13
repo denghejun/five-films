@@ -1,5 +1,5 @@
 import { TabNavigator } from 'react-navigation'
-import * as Screens from '../screens'
+import * as Screens from '../../screens'
 
 export const MainTabNavigator = TabNavigator({
   MovieComing: {

@@ -1,4 +1,4 @@
 import { AppBootstrapper } from 'react-native-modular-bootstrapper'
-import { App } from './src/App.tsx'
+import { App } from './src/components/root/index.tsx'
 
 AppBootstrapper.startup(App);
