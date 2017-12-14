@@ -1,17 +1,12 @@
 {
-  "name": "five-films",
-  "version": "0.0.0",
-  "description": "Hello Expo!",
-  "author": null,
+  "name": "@colorfulwindmill/five-films",
+  "version": "1.0.0",
+  "description": "",
+  "author": "colorfulwindmill",
   "license": "",
   "main": "bootstrap.js",
   "scripts": {
-    "test": "node ./node_modules/jest/bin/jest.js --watch",
-    "init": "npm run link-local && npm run link-install",
-    "link-local": "npm run link-interfaces && npm run link-services",
-    "link-interfaces": "cd src/interfaces && npm link",
-    "link-services": "cd src/services && npm link",
-    "link-install": "npm link @five-films/interfaces @five-films/services"
+    "test": "node ./node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
     "preset": "jest-expo-ts",
@@ -26,6 +21,8 @@
     ]
   },
   "dependencies": {
+    "@colorfulwindmill/five-films-interface": "^1.0.0",
+    "@colorfulwindmill/five-films-service": "^1.0.2",
     "expo": "^23.0.0",
     "inversify": "^4.3.0",
     "merge": "^1.2.0",

@@ -5,13 +5,7 @@
 npm install
 ```
 
-#### 2.link/init local app node modules
-```
-npm run init
-
-```
-
-#### 3. run in expo
+#### 2. run in expo
 ```
 exp start -c
 ```

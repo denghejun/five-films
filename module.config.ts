@@ -1,8 +1,8 @@
-import * as  Services from '@five-films/services'
+import * as Modules from './src/modules'
 import { ServiceContract } from 'react-native-modular-bootstrapper'
 
 export default class AppModuleProvider implements ServiceContract.ModuleProvider {
   public registerModules(): any[] {
-    return [Services.ServiceModule];
+    return [Modules.ServiceModule];
   }
 }
