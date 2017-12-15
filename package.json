@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "author": "colorfulwindmill",
-  "license": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/denghejun/five-films.git"
+  },
   "main": "bootstrap.js",
   "scripts": {
     "test": "node ./node_modules/jest/bin/jest.js --watch"
@@ -14,7 +18,7 @@
       "./jest-setup.js"
     ],
     "transformIgnorePatterns": [
-      "!node_modules/@five-films/"
+      "node_modules/"
     ],
     "testMatch": [
       "**/?(*.)(spec|test).ts?(x)"
@@ -28,7 +32,7 @@
     "merge": "^1.2.0",
     "react": "16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
-    "react-native-modular-bootstrapper": "^1.1.0",
+    "react-native-modular-bootstrapper": "^1.2.0",
     "react-navigation": "^1.0.0-beta.13",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
