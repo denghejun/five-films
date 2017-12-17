@@ -1,1 +1,5 @@
 export * from './ServiceModule'
+export * from './ContainersModule'
+export * from './ContainersConnectedModule'
+export * from './ViewsModule'
+export * from './StoreModule'

@@ -25,14 +25,14 @@
     ]
   },
   "dependencies": {
-    "@colorfulwindmill/five-films-interface": "^1.0.0",
+    "@colorfulwindmill/five-films-interface": "^1.0.9",
     "@colorfulwindmill/five-films-service": "^1.0.2",
     "expo": "^23.0.0",
     "inversify": "^4.3.0",
     "merge": "^1.2.0",
-    "react": "16.0.0",
+    "react": "^16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
-    "react-native-modular-bootstrapper": "^1.2.0",
+    "react-native-modular-bootstrapper": "^1.2.9",
     "react-navigation": "^1.0.0-beta.13",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@types/jest": "^20.0.8",
-    "@types/react": "^16.0.4",
+    "@types/react": "^15.6.10",
     "@types/react-native": "^0.50.7",
     "@types/react-navigation": "^1.0.25",
     "@types/react-redux": "^5.0.14",
