@@ -1,8 +1,7 @@
-import { ServiceContract } from "react-native-modular-bootstrapper"
+import { ServiceContract, Container, injectable } from "react-native-modular-bootstrapper"
 import { ServiceType } from '@colorfulwindmill/five-films-interface'
 import { ReduxViewContainer, ResourceType } from 'react-native-modular-bootstrapper'
 import * as Containers from '../core/containers'
-import { Container, injectable } from 'inversify'
 
 @injectable()
 export class ContainersConnectedModule implements ServiceContract.Module {

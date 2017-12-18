@@ -1,5 +1,4 @@
-import { ReduxViewContainer } from 'react-native-modular-bootstrapper'
-import { injectable, inject } from 'inversify'
+import { ReduxViewContainer, injectable, inject } from 'react-native-modular-bootstrapper'
 import { Dispatch } from 'redux'
 import { HomeScreen } from '../../views'
 import { ServiceType } from '@colorfulwindmill/five-films-interface'

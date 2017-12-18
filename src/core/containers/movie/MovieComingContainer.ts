@@ -1,5 +1,4 @@
-import { ReduxViewContainer } from 'react-native-modular-bootstrapper'
-import { injectable } from 'inversify'
+import { ReduxViewContainer, injectable } from 'react-native-modular-bootstrapper'
 import { Dispatch } from 'redux'
 import { MovieComingScreen } from '../../views'
 
