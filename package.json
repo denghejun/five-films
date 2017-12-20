@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@colorfulwindmill/five-films-interface": "^1.0.9",
-    "@colorfulwindmill/five-films-service": "^1.0.7",
+    "@colorfulwindmill/five-films-service": "^1.0.8",
     "expo": "^23.0.0",
     "merge": "^1.2.0",
     "react": "16.0.0",

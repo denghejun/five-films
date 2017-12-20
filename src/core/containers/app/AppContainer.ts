@@ -2,7 +2,6 @@ import { injectable, inject, ReduxViewContainer } from 'react-native-modular-boo
 import { Dispatch } from 'redux'
 import { App } from '../../views'
 import { ServiceType } from '@colorfulwindmill/five-films-interface'
-import { store } from './Store'
 
 @injectable()
 export class AppContainer extends ReduxViewContainer<App> {
