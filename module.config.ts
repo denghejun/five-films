@@ -7,7 +7,6 @@ export default class AppModuleProvider implements ServiceContract.ModuleProvider
       Modules.ServiceModule,
       Modules.ContainersModule,
       Modules.ViewsModule,
-      Modules.ContainersConnectedModule,
       Modules.StoreModule
     ];
   }
