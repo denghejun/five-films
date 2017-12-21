@@ -10,7 +10,7 @@ export class MovieComingScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Movie Coming Screen</Text>
+        <Text>Welcome! Movie Coming Screen</Text>
       </View>
     );
   }

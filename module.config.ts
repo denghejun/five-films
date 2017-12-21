@@ -8,8 +8,8 @@ export default class AppModuleProvider implements ServiceContract.ModuleProvider
     public registerModules(): (new () => ServiceContract.Module)[] {
         return [
             ...new ServiceModulesProvider().registerModules(),
-            ContainersModule,
             ViewsModule,
+            ContainersModule,
             StoreModule
         ];
     }
