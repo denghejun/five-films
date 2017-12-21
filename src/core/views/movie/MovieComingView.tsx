@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Text, View } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
-export class MovieComingScreen extends React.Component {
+export class MovieComingView extends React.Component {
   static navigationOptions = {
     title: 'Movie Coming'
   }

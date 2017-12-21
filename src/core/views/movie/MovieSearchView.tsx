@@ -2,15 +2,15 @@ import * as React from 'react'
 import { Text, View } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
-export class MovieShowingScreen extends React.Component {
+export class MovieSearchView extends React.Component {
   static navigationOptions = {
-    title: 'Movie Showing'
+    title: 'Movie Search'
   }
 
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Movie Showing Screen</Text>
+        <Text>Hi, Movie Search Screen</Text>
       </View>
     );
   }

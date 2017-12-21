@@ -6,10 +6,10 @@ import * as Views from './'
 @injectable()
 export class ViewsModule implements ServiceContract.Module {
   public load(container: Container): void {
-    container.bind(ServiceType.TYPE_VIEW.APP).toConstantValue(Views.App);
-    container.bind(ServiceType.TYPE_VIEW.HOME).toConstantValue(Views.HomeScreen);
-    container.bind(ServiceType.TYPE_VIEW.MOVIE_COMING).toConstantValue(Views.MovieComingScreen);
-    container.bind(ServiceType.TYPE_VIEW.MOVIE_SHOWING).toConstantValue(Views.MovieShowingScreen);
-    container.bind(ServiceType.TYPE_VIEW.MOVIE_SEARCH).toConstantValue(Views.MovieSearchScreen);
+    container.bind(ServiceType.TYPE_VIEW.APP).toConstantValue(Views.AppView);
+    container.bind(ServiceType.TYPE_VIEW.HOME).toConstantValue(Views.HomeView);
+    container.bind(ServiceType.TYPE_VIEW.MOVIE_COMING).toConstantValue(Views.MovieComingView);
+    container.bind(ServiceType.TYPE_VIEW.MOVIE_SHOWING).toConstantValue(Views.MovieShowingView);
+    container.bind(ServiceType.TYPE_VIEW.MOVIE_SEARCH).toConstantValue(Views.MovieSearchView);
   }
 }

@@ -12,7 +12,6 @@ export class AppContainer extends ReduxViewContainer<any> {
   }
 
   protected MapStateToProps(initialState: any, ownProps: any): any {
-
     return {
       HomeContainerConnectedView: this.HomeContainerConnectedView
     };

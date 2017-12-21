@@ -2,7 +2,6 @@ import { ReduxViewContainer, injectable, inject } from 'react-native-modular-boo
 import { ServiceType } from '@colorfulwindmill/five-films-interface'
 import { Dispatch } from 'react-redux'
 import { StackNavigator, TabNavigator } from 'react-navigation'
-import { MovieComingScreen } from '../../views/movie'
 
 @injectable()
 export class HomeContainer extends ReduxViewContainer<any> {
