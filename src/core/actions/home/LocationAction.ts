@@ -1,6 +1,6 @@
 import { PAYLOAD_CREATOR_DEFAULT } from 'react-native-modular-bootstrapper'
 
-export const location = {
+export const locationAction = {
     FETCH: {
         START: PAYLOAD_CREATOR_DEFAULT,
         SUCCESS: PAYLOAD_CREATOR_DEFAULT,

@@ -1,4 +1,4 @@
-import { action } from '../../actions/home'
+import { homeAction as action } from '../../actions/home'
 import { handleActions } from 'redux-actions'
 import merge from 'merge/merge'
 

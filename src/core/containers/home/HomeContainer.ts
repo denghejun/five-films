@@ -8,9 +8,9 @@ export class HomeContainer extends ReduxViewContainer<any> {
   private readonly mainNavigation = this.CreateMainNavigation();
   constructor(
     @inject(ServiceType.TYPE_VIEW.HOME) view,
-    @inject(ServiceType.TYPE_CONTAINER.MOVIE_COMING_CONNECTED) private readonly MovieComingContainerConnectedView,
-    @inject(ServiceType.TYPE_CONTAINER.MOVIE_SHOWING_CONNECTED) private readonly MovieShowingContainerConnectedView,
-    @inject(ServiceType.TYPE_CONTAINER.MOVIE_SEARCH_CONNECTED) private readonly MovieSearchContainerConnectedView
+    @inject(ServiceType.TYPE_CONTAINER.MOVIE_COMING_CONNECTED) private readonly movieComingContainerConnectedView,
+    @inject(ServiceType.TYPE_CONTAINER.MOVIE_SHOWING_CONNECTED) private readonly movieShowingContainerConnectedView,
+    @inject(ServiceType.TYPE_CONTAINER.MOVIE_SEARCH_CONNECTED) private readonly movieSearchContainerConnectedView
   ) {
     super(view);
   }
@@ -20,13 +20,13 @@ export class HomeContainer extends ReduxViewContainer<any> {
       Main: {
         screen: TabNavigator({
           MovieComing: {
-            screen: this.MovieComingContainerConnectedView,
+            screen: this.movieComingContainerConnectedView,
           },
           MovieShowing: {
-            screen: this.MovieShowingContainerConnectedView,
+            screen: this.movieShowingContainerConnectedView,
           },
           MovieSearch: {
-            screen: this.MovieSearchContainerConnectedView,
+            screen: this.movieSearchContainerConnectedView,
           }
         })
       }
@@ -35,7 +35,7 @@ export class HomeContainer extends ReduxViewContainer<any> {
 
   protected MapStateToProps(initialState: any, ownProps: any): any {
     return {
-      RootStackNavigator: this.mainNavigation
+      rootStackNavigator: this.mainNavigation
     };
   }
   protected MapDispatchToProps(dispatch: Dispatch<any>, ownProps: any): any {

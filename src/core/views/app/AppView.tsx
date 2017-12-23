@@ -5,7 +5,7 @@ import { injectable, inject } from 'react-native-modular-bootstrapper'
 export class AppView extends React.Component<any> {
   render() {
     return (
-      <this.props.HomeContainerConnectedView />
+      <this.props.homeContainerConnectedView />
     );
   }
 }

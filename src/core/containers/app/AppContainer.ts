@@ -6,14 +6,14 @@ import { Dispatch } from 'react-redux'
 export class AppContainer extends ReduxViewContainer<any> {
   constructor(
     @inject(ServiceType.TYPE_VIEW.APP) view,
-    @inject(ServiceType.TYPE_CONTAINER.HOME_CONNECTED) private readonly HomeContainerConnectedView
+    @inject(ServiceType.TYPE_CONTAINER.HOME_CONNECTED) private readonly homeContainerConnectedView
   ) {
     super(view);
   }
 
   protected MapStateToProps(initialState: any, ownProps: any): any {
     return {
-      HomeContainerConnectedView: this.HomeContainerConnectedView
+      homeContainerConnectedView: this.homeContainerConnectedView
     };
   }
   protected MapDispatchToProps(dispatch: Dispatch<any>, ownProps: any): any {

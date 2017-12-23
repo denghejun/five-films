@@ -1,9 +1,8 @@
-import { createActions, ActionMap, ActionFunctionAny } from 'redux-actions'
-import { location } from './LocationAction'
-import { PAYLOAD_CREATOR_DEFAULT } from 'react-native-modular-bootstrapper'
+import { createActions } from 'redux-actions'
+import { locationAction } from './LocationAction'
 
-export const action = createActions({
+export const homeAction = createActions({
   HOME: {
-    LOCATION: location
+    LOCATION: locationAction
   }
 });

@@ -1,6 +1,11 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, Store, Middleware } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import { app } from '../reducers'
+import { ReduxViewContainer, injectable, inject, ResourceType, ReduxStore } from 'react-native-modular-bootstrapper'
 
-export const store = createStore(app, applyMiddleware(thunk, logger));
+@injectable()
+export class AppStore extends ReduxStore {
+  protected ProvideMiddleware(): Middleware[] {
+    return [thunk, logger];
+  }
+}

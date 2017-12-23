@@ -25,13 +25,13 @@
     ]
   },
   "dependencies": {
-    "@colorfulwindmill/five-films-interface": "^1.0.9",
-    "@colorfulwindmill/five-films-service": "^1.0.8",
+    "@colorfulwindmill/five-films-interface": "^1.1.4",
+    "@colorfulwindmill/five-films-service": "^1.0.9",
     "expo": "^23.0.0",
     "merge": "^1.2.0",
     "react": "16.0.0",
     "react-native": "0.50.3",
-    "react-native-modular-bootstrapper": "^3.2.10",
+    "react-native-modular-bootstrapper": "^3.2.19",
     "react-navigation": "^1.0.0-beta.13",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
