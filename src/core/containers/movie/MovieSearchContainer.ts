@@ -28,12 +28,11 @@ export class MovieSearchContainer extends ReduxViewContainer<any> {
   }
 
   private openMoviePlayLink(links) {
-    if (links && links.length > 0) {
+    if (!!links) {
       const keys = Object.keys(links);
       const { youku, tudou, qq, kumi, imgo } = links;
       const priorityLinks = [youku, tudou, qq, kumi, imgo];
-      const firstPlaylink = priorityLinks.find(l => l != undefined && l != '')
-        || keys.find(k => links[k] != undefined && links[k] != '');
+      const firstPlaylink = priorityLinks.find(l => !!l) || keys.find(k => !!links[k]);
       if (firstPlaylink) {
         this.browserService.open(firstPlaylink);
       } else {

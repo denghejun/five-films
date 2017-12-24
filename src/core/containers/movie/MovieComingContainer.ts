@@ -23,7 +23,6 @@ export class MovieComingContainer extends ReduxViewContainer<any> {
       return this.locationService.getCurrentCityName().then(city => {
         return this.movieRecommandService.getRecommendMovies({ city, mock: true })
           .then(response => {
-            debugger
             dispatch(this.action.movie.coming.fetch.success(response))
           })
           .catch((e: Common.Error<any>) => {
