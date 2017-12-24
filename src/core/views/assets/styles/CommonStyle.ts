@@ -5,7 +5,8 @@ export const common = StyleSheet.create({
     flex: 1
   },
   body: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'white'
   },
   centerContainer: {
     flex: 1,
