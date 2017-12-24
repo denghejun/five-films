@@ -34,8 +34,10 @@ export const searchMovie = StyleSheet.create({
     fontWeight: 'bold'
   },
   movieHeaderTouchContainer: {
+    flex: 1,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   movieHeaderPlayIcon: {
     marginRight: 5,

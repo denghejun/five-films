@@ -1,35 +1,18 @@
-import React from 'react'
+import * as React from 'react'
 import { View, Text, Image, TouchableOpacity, ActivityIndicator } from 'react-native'
-import * as Animatable from 'react-native-animatable'
 import HeaderImageScrollView, { TriggeringView } from 'react-native-image-header-scroll-view'
 import Modal from 'react-native-modalbox'
 import * as Styles from '../assets/styles'
 
 export class MovieSearchResultView extends React.Component<any> {
-  private movieHeaderTextContainer;
-  componentDidUpdate() {
-    this.hideMovieHeaderTextContainer()
-  }
-
-  componentDidMount() {
-    this.hideMovieHeaderTextContainer()
-  }
-
-  hideMovieHeaderTextContainer() {
-    if (this.movieHeaderTextContainer) {
-      this.movieHeaderTextContainer.fadeOut(100)
-    }
-  }
-
-  renderPlayOnlineTouchComponent(onMoviePlayPress, movieFormatedName, showPlayIcon = true) {
+  private renderPlayOnlineTouchComponent(onMoviePlayPress, movieFormatedName) {
     return (
       <TouchableOpacity style={Styles.searchMovie.movieHeaderTouchContainer} onPress={onMoviePlayPress}>
-        {
-          showPlayIcon && <Image
-            style={Styles.searchMovie.movieHeaderPlayIcon}
-            source={require('../assets/images/icon_movie_play_x64.png')}
-          />
-        }
+        <Image
+          style={Styles.searchMovie.movieHeaderPlayIcon}
+          source={require('../assets/images/icon_movie_play_x64.png')}
+        />
+
         <Text style={[Styles.searchMovie.movieHeaderText]}>
           {movieFormatedName}
         </Text>
@@ -71,22 +54,12 @@ export class MovieSearchResultView extends React.Component<any> {
               maxHeight={200}
               fadeOutForeground={true}
               maxOverlayOpacity={0.7}
-              renderTouchableFixedForeground={() =>
-                <Animatable.View style={Styles.searchMovie.movieHeader} ref={c => (this.movieHeaderTextContainer = c)}>
-                  {this.renderPlayOnlineTouchComponent(() => onMoviePlayPress(playlinks), movieFormatedName)}
-                </Animatable.View>}
-              renderForeground={() =>
-                <Animatable.View style={Styles.common.centerContainer}>
-                  {this.renderPlayOnlineTouchComponent(() => onMoviePlayPress(playlinks), movieFormatedName, false)}
-                </Animatable.View>}
+              renderTouchableFixedForeground={() => this.renderPlayOnlineTouchComponent(() => onMoviePlayPress(playlinks), movieFormatedName)}
+              renderForeground={() => this.renderPlayOnlineTouchComponent(() => onMoviePlayPress(playlinks), movieFormatedName)}
               renderHeader={() => <Image style={Styles.searchMovie.movieItemImage} source={{ uri: cover }} />}
             >
-
               <View style={Styles.common.paddingContainer}>
-                <TriggeringView
-                  onDisplay={() => this.movieHeaderTextContainer.fadeOut(100)}
-                  onBeginHidden={() => this.movieHeaderTextContainer.fadeInUp(200)}
-                >
+                <TriggeringView>
                   <View>
                     <View style={Styles.showingMovie.movieSubHeaderContainer}>
                       <Text style={Styles.showingMovie.movieSubHeader}>{title}</Text>
