@@ -89,5 +89,9 @@ export const showingMovie = StyleSheet.create({
     fontSize: 10,
     width: width(60),
     textAlign: 'center'
+  },
+  tabIcon: {
+    width: 32,
+    height: 32
   }
 })

@@ -7,7 +7,13 @@ import { MovieErrorView } from './MovieErrorView'
 
 export class MovieSearchView extends React.Component<any> {
   static navigationOptions = {
-    title: '电影搜索'
+    title: '电影搜索',
+    tabBarIcon: ({ tintColor }) => (
+      <Image
+        source={require('../assets/images/icon_movie_error_x64.png')}
+        style={[Styles.showingMovie.tabIcon, { tintColor: tintColor }]}
+      />
+    )
   }
 
   render() {

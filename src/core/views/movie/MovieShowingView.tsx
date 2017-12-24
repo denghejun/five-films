@@ -3,7 +3,7 @@ import { width, height, totalSize } from 'react-native-dimension'
 import FlipCard from 'react-native-flip-card'
 import * as Styles from '../assets/styles'
 import Button from 'react-native-button'
-import { MovieErrorView} from './MovieErrorView'
+import { MovieErrorView } from './MovieErrorView'
 import {
   View,
   Text,
@@ -23,7 +23,13 @@ import {
 
 export class MovieShowingView extends React.Component<any> {
   static navigationOptions = {
-    title: '正在上映'
+    title: '正在上映',
+    tabBarIcon: ({ tintColor }) => (
+      <Image
+        source={require('../assets/images/ing.png')}
+        style={[Styles.showingMovie.tabIcon, { tintColor: tintColor }]}
+      />
+    )
   }
 
   componentDidMount() {
