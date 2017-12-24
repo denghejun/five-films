@@ -4,14 +4,18 @@ import { ServiceType } from '@colorfulwindmill/five-films-interface'
 @injectable()
 export class MovieReducerCombiner extends ReduxReducerCombiner {
   constructor(
-    @inject(ServiceType.TYPE_REDUCER.MOVIE_COMING) private readonly movieComingReducer: ReduxReducer
+    @inject(ServiceType.TYPE_REDUCER.MOVIE_COMING) private readonly movieComingReducer: ReduxReducer,
+    @inject(ServiceType.TYPE_REDUCER.MOVIE_SHOWING) private readonly movieShowingReducer: ReduxReducer,
+    @inject(ServiceType.TYPE_REDUCER.MOVIE_SEARCH) private readonly movieSearchReducer: ReduxReducer
   ) {
     super();
   }
 
   protected ProviderChildrenReducer(): any {
     return {
-      coming: this.movieComingReducer.create()
+      coming: this.movieComingReducer.create(),
+      showing: this.movieShowingReducer.create(),
+      search: this.movieSearchReducer.create()
     };
   }
 }
