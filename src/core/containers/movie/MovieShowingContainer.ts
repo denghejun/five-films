@@ -32,7 +32,7 @@ export class MovieShowingContainer extends ReduxViewContainer<any> {
     return async (dispatch, getState) => {
       dispatch(this.action.movie.showing.fetch.start())
       return this.locationService.getCurrentCityName().then(city => {
-        return this.movieRecommandService.getRecommendMovies({ city, mock: true })
+        return this.movieRecommandService.getRecommendMovies({ city, mock: false, cache: true, cacheKey: city, cacheExpireMinutes: 8 * 60 })
           .then(response => {
             dispatch(this.action.movie.showing.fetch.success(response))
           })
