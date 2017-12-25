@@ -48,7 +48,7 @@ export class MovieSearchResultView extends React.Component<any> {
       const movieFormatedName = title + ' (' + area + ',' + year + ')'
 
       return (
-        <Modal style={Styles.searchMovie.movieSearchResultModal} swipeToClose={false} isOpen={!isLoading}>
+        <Modal style={Styles.searchMovie.movieSearchResultModal} swipeToClose={false} keyboardTopOffset={0} isOpen={!isLoading}>
           <View style={[Styles.common.container]}>
             <HeaderImageScrollView
               maxHeight={200}
