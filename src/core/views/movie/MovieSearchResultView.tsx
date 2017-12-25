@@ -54,8 +54,30 @@ export class MovieSearchResultView extends React.Component<any> {
               maxHeight={200}
               fadeOutForeground={true}
               maxOverlayOpacity={0.7}
-              renderTouchableFixedForeground={() => this.renderPlayOnlineTouchComponent(() => onMoviePlayPress(playlinks), movieFormatedName)}
-              renderForeground={() => this.renderPlayOnlineTouchComponent(() => onMoviePlayPress(playlinks), movieFormatedName)}
+              renderTouchableFixedForeground={() => {
+                return (<TouchableOpacity style={Styles.searchMovie.movieHeaderTouchContainer} onPress={() => onMoviePlayPress(playlinks)}>
+                  <Image
+                    style={Styles.searchMovie.movieHeaderPlayIcon}
+                    source={require('../assets/images/icon_movie_play_x64.png')}
+                  />
+
+                  <Text style={[Styles.searchMovie.movieHeaderText]}>
+                    {movieFormatedName}
+                  </Text>
+                </TouchableOpacity>);
+              }}
+              renderForeground={() => {
+                return (<TouchableOpacity style={Styles.searchMovie.movieHeaderTouchContainer} onPress={() => onMoviePlayPress(playlinks)}>
+                  <Image
+                    style={Styles.searchMovie.movieHeaderPlayIcon}
+                    source={require('../assets/images/icon_movie_play_x64.png')}
+                  />
+
+                  <Text style={[Styles.searchMovie.movieHeaderText]}>
+                    {movieFormatedName}
+                  </Text>
+                </TouchableOpacity>);
+              }}
               renderHeader={() => <Image style={Styles.searchMovie.movieItemImage} source={{ uri: cover }} />}
             >
               <View style={Styles.common.paddingContainer}>
