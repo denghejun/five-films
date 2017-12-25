@@ -28,7 +28,10 @@ export class HomeContainer extends ReduxViewContainer<any> {
           MovieSearch: {
             screen: this.movieSearchContainerConnectedView,
           }
-        })
+        }, {
+            swipeEnabled: true,
+            animationEnabled: true
+          })
       }
     })
   }
