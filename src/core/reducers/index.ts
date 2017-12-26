@@ -1,2 +1,2 @@
-export * from './AppReducerCombiner'
+export * from './app'
 export * from './movie'

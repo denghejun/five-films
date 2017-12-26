@@ -26,9 +26,8 @@
   },
   "dependencies": {
     "@colorfulwindmill/five-films-interface": "^1.1.8",
-    "@colorfulwindmill/five-films-service": "^1.1.6",
+    "@colorfulwindmill/five-films-service": "v1.1.9",
     "expo": "^23.0.0",
-    "merge": "^1.2.0",
     "react": "16.0.0",
     "react-native": "0.50.3",
     "react-native-button": "^2.2.0",
