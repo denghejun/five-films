@@ -9,8 +9,7 @@ export const searchMovie = StyleSheet.create({
   labelStyle: {
     color: 'orange',
     fontWeight: 'bold',
-    opacity: 0.8,
-    marginLeft: -10
+    opacity: 0.8
   },
   inputStyle: {
     color: 'white',

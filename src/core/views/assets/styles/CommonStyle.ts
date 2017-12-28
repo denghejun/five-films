@@ -1,8 +1,13 @@
 import { StyleSheet } from 'react-native'
+import { width, height, totalSize } from 'react-native-dimension'
 
 export const common = StyleSheet.create({
   container: {
     flex: 1
+  },
+  movieItem: {
+    flex: 1,
+    width: width(48)
   },
   body: {
     flex: 1,

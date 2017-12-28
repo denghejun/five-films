@@ -17,7 +17,7 @@ export class MovieSearchContainer extends ReduxViewContainer<any> {
   private search(name) {
     return (dispatch, getState) => {
       dispatch(this.action.movie.search.fetch.start({ q: name }));
-      return this.movieSearchService.search({ q: name, mock: true })
+      return this.movieSearchService.search({ q: name, mock: false })
         .then(response => {
           dispatch(this.action.movie.search.fetch.success(response));
         })

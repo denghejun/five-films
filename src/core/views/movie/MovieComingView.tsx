@@ -43,7 +43,7 @@ export class MovieComingView extends React.Component<any> {
 
     return (
       <View style={Styles.showingMovie.thumbnail}>
-        <View style={Styles.common.container}>
+        <View style={Styles.common.movieItem}>
           <TouchableOpacity onPress={() => this.props.onMovieItemFlipped(rowID)}>
             <FlipCard
               useNativeDriver={true}
@@ -80,12 +80,13 @@ export class MovieComingView extends React.Component<any> {
 
         </View>
 
-        <View style={Styles.common.container}>
+        <View style={Styles.common.movieItem}>
           <TouchableOpacity onPress={() => this.props.onMovieItemFlipped(rowID)}>
             <FlipCard
               flipVertical={!movieItemFlipFlag}
               flipHorizontal={movieItemFlipFlag}
               friction={45}
+              perspective={30}
               clickable={false}
               flip={!movieItemFlipFlag}
               style={Styles.showingMovie.flipCard}
