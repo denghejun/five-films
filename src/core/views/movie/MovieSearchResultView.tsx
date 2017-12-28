@@ -27,7 +27,7 @@ export class MovieSearchResultView extends React.Component<any> {
           <Modal
             coverScreen={true}
             swipeToClose={true}
-            swipeArea={height(50)}
+            swipeArea={height(72)}
             isOpen={isOpenModal}
             onClosed={() => closeResultModal()} >
             <View style={[Styles.common.container]}>

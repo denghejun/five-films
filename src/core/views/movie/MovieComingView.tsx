@@ -25,7 +25,7 @@ export class MovieComingView extends React.Component<any> {
     title: '即将上映',
     tabBarIcon: ({ tintColor }) => (
       <Image
-        source={require('../assets/images/icon_movie_error_x64.png')}
+        source={require('../assets/images/coming.png')}
         style={[Styles.showingMovie.tabIcon, { tintColor: tintColor }]}
       />
     )

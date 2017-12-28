@@ -10,7 +10,7 @@ export class MovieSearchView extends React.Component<any> {
     title: '电影搜索',
     tabBarIcon: ({ tintColor }) => (
       <Image
-        source={require('../assets/images/icon_movie_error_x64.png')}
+        source={require('../assets/images/search.png')}
         style={[Styles.showingMovie.tabIcon, { tintColor: tintColor }]}
       />
     )

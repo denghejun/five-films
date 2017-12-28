@@ -26,7 +26,7 @@ export class MovieShowingView extends React.Component<any> {
     title: '正在上映',
     tabBarIcon: ({ tintColor }) => (
       <Image
-        source={require('../assets/images/ing.png')}
+        source={require('../assets/images/showing.png')}
         style={[Styles.showingMovie.tabIcon, { tintColor: tintColor }]}
       />
     )
