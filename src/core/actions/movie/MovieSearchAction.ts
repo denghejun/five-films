@@ -8,5 +8,9 @@ export const movieSearchAction = {
   },
   MOVIE_ITEM: {
     FLIP: PAYLOAD_CREATOR_DEFAULT
+  },
+  MODAL: {
+    OPEN: PAYLOAD_CREATOR_DEFAULT,
+    CLOSE: PAYLOAD_CREATOR_DEFAULT
   }
 }

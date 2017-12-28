@@ -9,24 +9,29 @@ export class MovieSearchReducer extends ReduxReducer {
 
   protected ProvideInitState(): any {
     return {
+      isInit: true,
       isLoading: false,
       hasError: false,
       errorMessage: undefined,
-      data: undefined
+      data: undefined,
+      isOpenModal: false
     };
   }
   protected ProvideActionHandler(): any {
     return {
       [this.action.movie.search.fetch.start]: (state, action) => {
         return Object.assign({}, state, {
+          isInit:false,
           errorMessage: undefined,
           isLoading: true,
+          isOpenModal: false,
           data: undefined
         });
       },
       [this.action.movie.search.fetch.success]: (state, action) => {
         return Object.assign({}, state, {
           isLoading: false,
+          isOpenModal: true,
           hasError: false,
           errorMessage: undefined,
           data: action.payload.result
@@ -35,9 +40,20 @@ export class MovieSearchReducer extends ReduxReducer {
       [this.action.movie.search.fetch.failed]: (state, action) => {
         return Object.assign({}, state, {
           isLoading: false,
+          isOpenModal: false,
           hasError: true,
           errorMessage: action.payload.message,
           data: undefined
+        });
+      },
+      [this.action.movie.search.modal.open]: (state, action) => {
+        return Object.assign({}, state, {
+          isOpenModal: true
+        });
+      },
+      [this.action.movie.search.modal.close]: (state, action) => {
+        return Object.assign({}, state, {
+          isOpenModal: false
         });
       }
     };

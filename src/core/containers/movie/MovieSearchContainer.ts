@@ -45,17 +45,21 @@ export class MovieSearchContainer extends ReduxViewContainer<any> {
 
   protected MapStateToProps(initialState: any, ownProps: any): any {
     return {
+      isInit: initialState.app.movie.search.isInit,
       isLoading: initialState.app.movie.search.isLoading,
       result: initialState.app.movie.search.data,
       hasError: initialState.app.movie.search.hasError,
-      errorMessage: initialState.app.movie.search.errorMessage
+      errorMessage: initialState.app.movie.search.errorMessage,
+      isOpenModal: initialState.app.movie.search.isOpenModal
     };
   }
 
   protected MapDispatchToProps(dispatch: Dispatch<any>, ownProps: any): any {
     return {
       onSearch: name => dispatch(this.search(name)),
-      onMoviePlayPress: links => this.openMoviePlayLink(links)
+      onMoviePlayPress: links => this.openMoviePlayLink(links),
+      openResultModal: () => dispatch(this.action.movie.search.modal.open()),
+      closeResultModal: () => dispatch(this.action.movie.search.modal.close())
     };
   }
 }

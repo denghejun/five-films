@@ -3,138 +3,51 @@ import { View, Text, Image, TouchableOpacity, ActivityIndicator } from 'react-na
 import HeaderImageScrollView, { TriggeringView } from 'react-native-image-header-scroll-view'
 import Modal from 'react-native-modalbox'
 import * as Styles from '../assets/styles'
+import { MovieSearchResultDescView } from './MovieSearchResultDescView'
+import { MovieSearchResultModalHeaderView } from './MovieSearchResultModalHeaderView'
+import { MovieSearchLoadingView } from './MovieSearchLoadingView'
+import { width, height, totalSize } from 'react-native-dimension'
 
 export class MovieSearchResultView extends React.Component<any> {
-  private renderPlayOnlineTouchComponent(onMoviePlayPress, movieFormatedName) {
-    return (
-      <TouchableOpacity style={Styles.searchMovie.movieHeaderTouchContainer} onPress={onMoviePlayPress}>
-        <Image
-          style={Styles.searchMovie.movieHeaderPlayIcon}
-          source={require('../assets/images/icon_movie_play_x64.png')}
-        />
-
-        <Text style={[Styles.searchMovie.movieHeaderText]}>
-          {movieFormatedName}
-        </Text>
-      </TouchableOpacity>
-    )
-  }
-
   render() {
-    const { result, isLoading } = this.props
-    const isInit = result === undefined
+    const { closeResultModal, result, isLoading, isInit } = this.props
     if (isLoading) {
       return (
-        <View style={[Styles.common.centerContainer]}>
-          <Text style={Styles.showingMovie.errorText}>
-            Searching...
-          </Text>
-          <ActivityIndicator animating={true} />
-        </View>
+        <MovieSearchLoadingView animating={true} text={'Searching...'} />
       )
     } else if (isInit) {
       return (
-        <View style={[Styles.common.centerContainer]}>
-          <Text style={Styles.showingMovie.errorText}>
-            Try searching.
-          </Text>
-        </View>
+        <MovieSearchLoadingView animating={false} text={'Try searching.'} />
       )
     } else {
-      const {
-        onMoviePlayPress,
-        result: { cover, title, desc, tag, year, rating, area, dir, act, playlinks }
-      } = this.props
-      const movieFormatedName = title + ' (' + area + ',' + year + ')'
-
+      const { isOpenModal, result: { cover } } = this.props
       return (
-        <Modal coverScreen={true} swipeToClose={true} swipeArea={350} isOpen={!isLoading}>
-          <View style={[Styles.common.container]}>
-            <HeaderImageScrollView
-              maxHeight={200}
-              fadeOutForeground={true}
-              maxOverlayOpacity={0.7}
-              renderTouchableFixedForeground={() => {
-                return (<TouchableOpacity style={Styles.searchMovie.movieHeaderTouchContainer} onPress={() => onMoviePlayPress(playlinks)}>
-                  <Image
-                    style={Styles.searchMovie.movieHeaderPlayIcon}
-                    source={require('../assets/images/icon_movie_play_x64.png')}
-                  />
-
-                  <Text style={[Styles.searchMovie.movieHeaderText]}>
-                    {movieFormatedName}
-                  </Text>
-                </TouchableOpacity>);
-              }}
-              renderForeground={() => {
-                return (<TouchableOpacity style={Styles.searchMovie.movieHeaderTouchContainer} onPress={() => onMoviePlayPress(playlinks)}>
-                  <Image
-                    style={Styles.searchMovie.movieHeaderPlayIcon}
-                    source={require('../assets/images/icon_movie_play_x64.png')}
-                  />
-
-                  <Text style={[Styles.searchMovie.movieHeaderText]}>
-                    {movieFormatedName}
-                  </Text>
-                </TouchableOpacity>);
-              }}
-              renderHeader={() => <Image style={Styles.searchMovie.movieItemImage} source={{ uri: cover }} />}
-            >
-              <View style={Styles.common.paddingContainer}>
-                <TriggeringView>
-                  <View>
-                    <View style={Styles.showingMovie.movieSubHeaderContainer}>
-                      <Text style={Styles.showingMovie.movieSubHeader}>{title}</Text>
-                    </View>
-                    <Text style={Styles.showingMovie.movieSubText}>{desc}</Text>
-                  </View>
-
-                  <View>
-                    <View style={Styles.showingMovie.movieSubHeaderContainer}>
-                      <Text style={Styles.showingMovie.movieSubHeader}>类型</Text>
-                    </View>
-                    <Text style={Styles.showingMovie.movieSubText}>{tag}</Text>
-                  </View>
-
-                  <View>
-                    <View style={Styles.showingMovie.movieSubHeaderContainer}>
-                      <Text style={Styles.showingMovie.movieSubHeader}>上映时间</Text>
-                    </View>
-                    <Text style={Styles.showingMovie.movieSubText}>{year}</Text>
-                  </View>
-
-                  <View>
-                    <View style={Styles.showingMovie.movieSubHeaderContainer}>
-                      <Text style={Styles.showingMovie.movieSubHeader}>评分</Text>
-                    </View>
-                    <Text style={Styles.showingMovie.movieSubText}>{rating || '暂无评分'}</Text>
-                  </View>
-
-                  <View>
-                    <View style={Styles.showingMovie.movieSubHeaderContainer}>
-                      <Text style={Styles.showingMovie.movieSubHeader}>地区</Text>
-                    </View>
-                    <Text style={Styles.showingMovie.movieSubText}>{area}</Text>
-                  </View>
-
-                  <View>
-                    <View style={Styles.showingMovie.movieSubHeaderContainer}>
-                      <Text style={Styles.showingMovie.movieSubHeader}>导演</Text>
-                    </View>
-                    <Text style={Styles.showingMovie.movieSubText}>{dir}</Text>
-                  </View>
-
-                  <View>
-                    <View style={Styles.showingMovie.movieSubHeaderContainer}>
-                      <Text style={Styles.showingMovie.movieSubHeader}>演员</Text>
-                    </View>
-                    <Text style={Styles.showingMovie.movieSubText}>{act}</Text>
-                  </View>
-                </TriggeringView>
-              </View>
-            </HeaderImageScrollView>
-          </View>
-        </Modal>
+        <View>
+          <MovieSearchResultDescView touchabled={true} {...this.props} />
+          <Modal
+            coverScreen={true}
+            swipeToClose={true}
+            swipeArea={height(50)}
+            isOpen={isOpenModal}
+            onClosed={() => closeResultModal()} >
+            <View style={[Styles.common.container]}>
+              <HeaderImageScrollView
+                maxHeight={200}
+                fadeOutForeground={true}
+                maxOverlayOpacity={0.7}
+                renderTouchableFixedForeground={() => <MovieSearchResultModalHeaderView {...this.props} />}
+                renderForeground={() => <MovieSearchResultModalHeaderView {...this.props} />}
+                renderHeader={() => <Image style={Styles.searchMovie.movieItemImage} source={{ uri: cover }} />}
+              >
+                <View style={Styles.common.paddingContainer}>
+                  <TriggeringView>
+                    <MovieSearchResultDescView touchabled={false} {...this.props} />
+                  </TriggeringView>
+                </View>
+              </HeaderImageScrollView>
+            </View>
+          </Modal>
+        </View>
       )
     }
   }
