@@ -35,6 +35,17 @@ export class MovieComingView extends React.Component<any> {
     if (this.props.onComponentDidMount !== undefined) {
       this.props.onComponentDidMount()
     }
+
+    setInterval(this.startupFlipCardAutomatically.bind(this), 5000)
+  }
+
+  private startupFlipCardAutomatically() {
+    const { comingMovieDataSource } = this.props;
+    if (comingMovieDataSource) {
+      const rowCounts = comingMovieDataSource.getRowCount();
+      const index = Math.floor(Math.random() * rowCounts)
+      this.props.onMovieItemFlipped(index);
+    }
   }
 
   renderRow = (rowData, sectionID, rowID) => {
@@ -132,7 +143,7 @@ export class MovieComingView extends React.Component<any> {
   }
 
   render() {
-    const { hasError, errorMessage, showingMovieDataSource, isLoading, onRefresh } = this.props;
+    const { hasError, errorMessage, comingMovieDataSource, isLoading, onRefresh } = this.props;
 
     return hasError
       ? <View style={Styles.common.body}>
@@ -141,7 +152,7 @@ export class MovieComingView extends React.Component<any> {
       : <View style={Styles.common.body}>
         <ListView
           removeClippedSubviews={false}
-          dataSource={showingMovieDataSource}
+          dataSource={comingMovieDataSource}
           renderRow={this.renderRow}
           refreshControl={
             <RefreshControl

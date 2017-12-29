@@ -36,6 +36,17 @@ export class MovieShowingView extends React.Component<any> {
     if (this.props.onComponentDidMount !== undefined) {
       this.props.onComponentDidMount()
     }
+
+    setInterval(this.startupFlipCardAutomatically.bind(this), 5000)
+  }
+
+  private startupFlipCardAutomatically() {
+    const { showingMovieDataSource } = this.props;
+    if (showingMovieDataSource) {
+      const rowCounts = showingMovieDataSource.getRowCount();
+      const index = Math.floor(Math.random() * rowCounts)
+      this.props.onMovieItemFlipped(index);
+    }
   }
 
   renderRow = (rowData, sectionID, rowID) => {
