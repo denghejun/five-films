@@ -3,17 +3,15 @@ import { ServiceType } from '@colorfulwindmill/five-films-interface'
 import { Dispatch } from 'react-redux'
 
 @injectable()
-export class AppContainer extends ReduxViewContainer<any> {
+export class DrawerContentContainer extends ReduxViewContainer<any> {
   constructor(
-    @inject(ServiceType.TYPE_VIEW.APP) view,
-    @inject(ServiceType.TYPE_CONTAINER.HOME) private readonly homeContainerConnectedView
+    @inject(ServiceType.TYPE_VIEW.DRAWER_CONTENT) view
   ) {
     super(view);
   }
 
   protected MapStateToProps(initialState: any, ownProps: any): any {
     return {
-      homeContainerConnectedView: this.homeContainerConnectedView
     };
   }
   protected MapDispatchToProps(dispatch: Dispatch<any>, ownProps: any): any {

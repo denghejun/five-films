@@ -20,17 +20,18 @@ export class MovieComingContainer extends ReduxViewContainer<any> {
   private getRecommendMovies() {
     return async (dispatch, getState) => {
       dispatch(this.action.movie.coming.fetch.start())
-      return this.locationService.getCurrentCityName().then(city => {
-        return this.movieRecommandService.getRecommendMovies({ city, mock: false, cache: true, cacheKey: city, cacheExpireMinutes: 8 * 60 })
-          .then(response => {
-            dispatch(this.action.movie.coming.fetch.success(response))
-          })
-          .catch((e: Common.Error<any>) => {
-            dispatch(this.action.movie.coming.fetch.failed({ message: e.message }))
-          })
-      }).catch((e: Common.Error<any>) => {
-        dispatch(this.action.movie.coming.fetch.failed({ message: e.message }))
-      });
+      // return this.locationService.getCurrentCityName().then(city => {
+      const city = '成都';
+      return this.movieRecommandService.getRecommendMovies({ city, mock: false, cache: true, cacheKey: city, cacheExpireMinutes: 8 * 60 })
+        .then(response => {
+          dispatch(this.action.movie.coming.fetch.success(response))
+        })
+        .catch((e: Common.Error<any>) => {
+          dispatch(this.action.movie.coming.fetch.failed({ message: e.message }))
+        })
+      // }).catch((e: Common.Error<any>) => {
+      //   dispatch(this.action.movie.coming.fetch.failed({ message: e.message }))
+      // });
     }
   }
 
@@ -60,7 +61,7 @@ export class MovieComingContainer extends ReduxViewContainer<any> {
 
   protected MapStateToProps(initialState: any, ownProps: any): any {
     return {
-      showingMovieDataSource: this.getComingMovies(initialState),
+      comingMovieDataSource: this.getComingMovies(initialState),
       isLoading: initialState.app.movie.coming.isLoading,
       hasError: initialState.app.movie.coming.hasError,
       movieItemFlipStates: initialState.app.movie.coming.movieItemFlipStates,

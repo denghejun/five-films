@@ -11,5 +11,7 @@ export class ViewsModule implements ServiceContract.Module {
     container.bind(ServiceType.TYPE_VIEW.MOVIE_COMING).toConstantValue(Views.MovieComingView);
     container.bind(ServiceType.TYPE_VIEW.MOVIE_SHOWING).toConstantValue(Views.MovieShowingView);
     container.bind(ServiceType.TYPE_VIEW.MOVIE_SEARCH).toConstantValue(Views.MovieSearchView);
+    container.bind(ServiceType.TYPE_VIEW.DRAWER_CONTENT).toConstantValue(Views.DrawerContentView);
+    container.bind(ServiceType.TYPE_VIEW.USER_DETAIL).toConstantValue(Views.UserDetailView);
   }
 }

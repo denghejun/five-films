@@ -31,7 +31,8 @@ export class MovieShowingContainer extends ReduxViewContainer<any> {
   private getRecommendMovies() {
     return async (dispatch, getState) => {
       dispatch(this.action.movie.showing.fetch.start())
-      return this.locationService.getCurrentCityName().then(city => {
+      // return this.locationService.getCurrentCityName().then(city => {
+        const city = '成都';
         return this.movieRecommandService.getRecommendMovies({ city, mock: false, cache: true, cacheKey: city, cacheExpireMinutes: 8 * 60 })
           .then(response => {
             dispatch(this.action.movie.showing.fetch.success(response))
@@ -39,9 +40,9 @@ export class MovieShowingContainer extends ReduxViewContainer<any> {
           .catch((e: Common.Error<any>) => {
             dispatch(this.action.movie.showing.fetch.failed({ message: e.message }))
           })
-      }, (e: Common.Error<any>) => {
-        dispatch(this.action.movie.showing.fetch.failed({ message: e.message }))
-      });
+      // }, (e: Common.Error<any>) => {
+      //   dispatch(this.action.movie.showing.fetch.failed({ message: e.message }))
+      // });
     }
   }
 
