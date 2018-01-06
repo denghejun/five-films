@@ -4,6 +4,7 @@ import FlipCard from 'react-native-flip-card'
 import * as Styles from '../assets/styles'
 import Button from 'react-native-button'
 import { MovieErrorView } from './MovieErrorView'
+import { CircleImage } from '../common'
 import {
   View,
   Text,
@@ -22,15 +23,19 @@ import {
 } from 'react-native'
 
 export class MovieShowingView extends React.Component<any> {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: '正在上映',
+    headerStyle: { backgroundColor: 'mediumaquamarine' },
+    headerLeft: <CircleImage onPress={() => {
+      navigation.navigate('DrawerToggle');
+    }} sizeMode='small' source={{ uri: 'https://loremflickr.com/100/100/girl' }} />,
     tabBarIcon: ({ tintColor }) => (
       <Image
         source={require('../assets/images/showing.png')}
         style={[Styles.showingMovie.tabIcon, { tintColor: tintColor }]}
       />
     )
-  }
+  });
 
   componentDidMount() {
     if (this.props.onComponentDidMount !== undefined) {

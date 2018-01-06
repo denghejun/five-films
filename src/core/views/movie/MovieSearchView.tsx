@@ -4,17 +4,22 @@ import * as Styles from '../assets/styles'
 import { Jiro } from 'react-native-textinput-effects'
 import { MovieSearchResultView } from './MovieSearchResultView'
 import { MovieErrorView } from './MovieErrorView'
+import { CircleImage } from '../common'
 
 export class MovieSearchView extends React.Component<any> {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: '电影搜索',
+    headerStyle: { backgroundColor: 'lightskyblue' },
+    headerLeft: <CircleImage onPress={() => {
+      navigation.navigate('DrawerToggle');
+    }} sizeMode='small' source={{ uri: 'https://loremflickr.com/100/100/girl' }} />,
     tabBarIcon: ({ tintColor }) => (
       <Image
         source={require('../assets/images/search.png')}
         style={[Styles.showingMovie.tabIcon, { tintColor: tintColor }]}
       />
     )
-  }
+  });
 
   render() {
     const { hasError, onSearch, errorMessage, isLoading } = this.props

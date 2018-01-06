@@ -32,5 +32,15 @@ export const common = StyleSheet.create({
   },
   marginLeft_5: {
     marginLeft: 5
+  },
+  circle_image_small: {
+    height: 40,
+    borderRadius: 20,
+    width: 40
+  },
+  circle_image_large: {
+    height: 100,
+    borderRadius: 50,
+    width: 100
   }
 })

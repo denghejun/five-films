@@ -4,6 +4,8 @@ import FlipCard from 'react-native-flip-card'
 import Button from 'react-native-button'
 import * as Styles from '../assets/styles'
 import { MovieErrorView } from './MovieErrorView'
+import { CircleImage } from '../common'
+import { LinearGradient } from 'expo'
 import {
   View,
   Text,
@@ -21,15 +23,33 @@ import {
 } from 'react-native'
 
 export class MovieComingView extends React.Component<any> {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
+    // header: (props) => {
+    //   return <LinearGradient
+    //      colors={['#4c669f', '#3b5998', '#192f6a']}
+    //      style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
+    //      <Text
+    //         style={{
+    //           backgroundColor: 'transparent',
+    //           fontSize: 15,
+    //           color: '#fff',
+    //         }}>
+    //         {123}
+    //       </Text>
+    //      </LinearGradient>
+    // },
     title: '即将上映',
+    headerStyle: { backgroundColor: 'orange' },
+    headerLeft: <CircleImage onPress={() => {
+      navigation.navigate('DrawerToggle');
+    }} sizeMode='small' source={{ uri: 'https://loremflickr.com/100/100/girl' }} />,
     tabBarIcon: ({ tintColor }) => (
       <Image
         source={require('../assets/images/coming.png')}
         style={[Styles.showingMovie.tabIcon, { tintColor: tintColor }]}
       />
     )
-  }
+  });
 
   componentDidMount() {
     if (this.props.onComponentDidMount !== undefined) {
