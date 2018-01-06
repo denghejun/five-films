@@ -19,37 +19,34 @@ export class HomeContainer extends ReduxViewContainer<any> {
 
   private CreateMainNavigation(): any {
     return DrawerNavigator({
-      Main: {
-        navigationOptions: ({ navigation }) => ({
-          title: 'Profile',
-        }),
+      main: {
         screen: StackNavigator({
-          Movie: {
+          movie: {
             screen: TabNavigator({
-              MovieComing: {
+              coming: {
                 screen: this.movieComingContainerConnectedView,
               },
-              MovieShowing: {
+              showing: {
                 screen: this.movieShowingContainerConnectedView,
               },
-              MovieSearch: {
+              search: {
                 screen: this.movieSearchContainerConnectedView,
-              },
-
+              }
             }, {
                 swipeEnabled: true,
-                animationEnabled: true
+                animationEnabled: true,
+                tabBarOptions: {
+                  style: {
+                    backgroundColor: 'white',
+                  },
+                }
               })
+          },
+          user: {
+            screen: this.userDetailContainerConnectedView
           }
         })
-      },
-      Drawer: {
-        screen: StackNavigator({
-          Left: {
-            screen: this.userDetailContainerConnectedView
-          },
-        })
-      },
+      }
     }, {
         drawerOpenRoute: 'DrawerOpen',
         drawerCloseRoute: 'DrawerClose',
