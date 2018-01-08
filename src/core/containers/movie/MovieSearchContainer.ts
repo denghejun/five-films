@@ -6,12 +6,12 @@ import { Alert } from 'react-native'
 @injectable()
 export class MovieSearchContainer extends ReduxViewContainer<any> {
   constructor(
-    @inject(ServiceType.TYPE_VIEW.MOVIE_SEARCH) view,
+    @inject(ServiceType.TYPE_VIEW.MOVIE) view,
     @inject(ServiceType.TYPE_ACTION.MOVIE) private readonly action,
     @inject(ServiceType.TYPE_MOVIE.SEARCH) private readonly movieSearchService: Movie.MovieSearchService,
     @inject(ServiceType.TYPE_BROWSER.BROWSER) private readonly browserService: Common.BrowserService
   ) {
-    super(view);
+    super(view.search);
   }
 
   private search(name) {

@@ -8,13 +8,13 @@ import { ListView } from 'react-native'
 export class MovieComingContainer extends ReduxViewContainer<any> {
   private timeId;
   constructor(
-    @inject(ServiceType.TYPE_VIEW.MOVIE_COMING) view,
+    @inject(ServiceType.TYPE_VIEW.MOVIE) view,
     @inject(ServiceType.TYPE_ACTION.MOVIE) private readonly action,
     @inject(ServiceType.TYPE_MOVIE.RECOMMEND) private readonly movieRecommandService: Movie.MovieRecommendService,
     @inject(ServiceType.TYPE_LOCAION.CITY_SEARCH) private readonly locationService: Location.LocationSearchService,
     @inject(ServiceType.TYPE_BROWSER.BROWSER) private readonly browserService: Common.BrowserService
   ) {
-    super(view);
+    super(view.coming);
   }
 
   private getRecommendMovies() {

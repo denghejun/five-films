@@ -9,10 +9,8 @@ export class HomeContainer extends ReduxViewContainer<any> {
   private readonly mainNavigation = this.CreateMainNavigation();
   constructor(
     @inject(ServiceType.TYPE_VIEW.HOME) view,
-    @inject(ServiceType.TYPE_CONTAINER.MOVIE_COMING) private readonly movieComingContainer,
-    @inject(ServiceType.TYPE_CONTAINER.MOVIE_SHOWING) private readonly movieShowingContainer,
-    @inject(ServiceType.TYPE_CONTAINER.MOVIE_SEARCH) private readonly movieSearchContainer,
-    @inject(ServiceType.TYPE_CONTAINER.DRAWER_CONTENT) private readonly drawerContainer,
+    @inject(ServiceType.TYPE_CONTAINER.DRAWER) private readonly drawerContainers,
+    @inject(ServiceType.TYPE_CONTAINER.MOVIE) private readonly movieContainers,
     @inject(ServiceType.TYPE_CONTAINER.USER) private readonly userContainers
   ) {
     super(view);
@@ -25,13 +23,13 @@ export class HomeContainer extends ReduxViewContainer<any> {
           movie: {
             screen: TabNavigator({
               coming: {
-                screen: this.movieComingContainer,
+                screen: this.movieContainers.coming,
               },
               showing: {
-                screen: this.movieShowingContainer,
+                screen: this.movieContainers.showing,
               },
               search: {
-                screen: this.movieSearchContainer,
+                screen: this.movieContainers.search,
               }
             }, {
                 swipeEnabled: true,
@@ -53,7 +51,7 @@ export class HomeContainer extends ReduxViewContainer<any> {
         drawerOpenRoute: 'DrawerOpen',
         drawerCloseRoute: 'DrawerClose',
         drawerToggleRoute: 'DrawerToggle',
-        contentComponent: this.drawerContainer
+        contentComponent: this.drawerContainers.content
       })
   }
 

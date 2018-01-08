@@ -8,10 +8,16 @@ export class ContainersModule implements ServiceContract.Module {
   public load(container: Container): void {
     ReduxViewContainer.registerReduxViewContainer(container, Containers.AppContainer, ResourceType.AppRoot);
     ReduxViewContainer.registerReduxViewContainer(container, Containers.HomeContainer, ServiceType.TYPE_CONTAINER.HOME);
-    ReduxViewContainer.registerReduxViewContainer(container, Containers.MovieComingContainer, ServiceType.TYPE_CONTAINER.MOVIE_COMING);
-    ReduxViewContainer.registerReduxViewContainer(container, Containers.MovieSearchContainer, ServiceType.TYPE_CONTAINER.MOVIE_SEARCH);
-    ReduxViewContainer.registerReduxViewContainer(container, Containers.MovieShowingContainer, ServiceType.TYPE_CONTAINER.MOVIE_SHOWING);
-    ReduxViewContainer.registerReduxViewContainer(container, Containers.DrawerContentContainer, ServiceType.TYPE_CONTAINER.DRAWER_CONTENT);
+    ReduxViewContainer.registerReduxViewContainers(container, {
+      content: Containers.DrawerContentContainer,
+    }, ServiceType.TYPE_CONTAINER.DRAWER);
+
+    ReduxViewContainer.registerReduxViewContainers(container, {
+      coming: Containers.MovieComingContainer,
+      showing: Containers.MovieShowingContainer,
+      search: Containers.MovieSearchContainer
+    }, ServiceType.TYPE_CONTAINER.MOVIE);
+
     ReduxViewContainer.registerReduxViewContainers(container, {
       userDetail: Containers.UserDetailContainer,
       userLogin: Containers.UserLoginContainer

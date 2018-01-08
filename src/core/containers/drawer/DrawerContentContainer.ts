@@ -5,9 +5,9 @@ import { Dispatch } from 'react-redux'
 @injectable()
 export class DrawerContentContainer extends ReduxViewContainer<any> {
   constructor(
-    @inject(ServiceType.TYPE_VIEW.DRAWER_CONTENT) view
+    @inject(ServiceType.TYPE_VIEW.DRAWER) views
   ) {
-    super(view);
+    super(views.content);
   }
 
   protected MapStateToProps(initialState: any, ownProps: any): any {

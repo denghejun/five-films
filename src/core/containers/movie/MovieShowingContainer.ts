@@ -8,12 +8,12 @@ import { ListView } from 'react-native'
 export class MovieShowingContainer extends ReduxViewContainer<any> {
   private timeId;
   constructor(
-    @inject(ServiceType.TYPE_VIEW.MOVIE_SHOWING) view,
+    @inject(ServiceType.TYPE_VIEW.MOVIE) view,
     @inject(ServiceType.TYPE_ACTION.MOVIE) private readonly action,
     @inject(ServiceType.TYPE_MOVIE.RECOMMEND) private readonly movieRecommandService: Movie.MovieRecommendService,
     @inject(ServiceType.TYPE_LOCAION.CITY_SEARCH) private readonly locationService: Location.LocationSearchService,
     @inject(ServiceType.TYPE_BROWSER.BROWSER) private readonly browserService: Common.BrowserService) {
-    super(view);
+    super(view.showing);
   }
 
   private getShowingMovies(state) {
@@ -32,14 +32,14 @@ export class MovieShowingContainer extends ReduxViewContainer<any> {
     return async (dispatch, getState) => {
       dispatch(this.action.movie.showing.fetch.start())
       // return this.locationService.getCurrentCityName().then(city => {
-        const city = '成都';
-        return this.movieRecommandService.getRecommendMovies({ city, mock: false, cache: true, cacheKey: city, cacheExpireMinutes: 8 * 60 })
-          .then(response => {
-            dispatch(this.action.movie.showing.fetch.success(response))
-          })
-          .catch((e: Common.Error<any>) => {
-            dispatch(this.action.movie.showing.fetch.failed({ message: e.message }))
-          })
+      const city = '成都';
+      return this.movieRecommandService.getRecommendMovies({ city, mock: false, cache: true, cacheKey: city, cacheExpireMinutes: 8 * 60 })
+        .then(response => {
+          dispatch(this.action.movie.showing.fetch.success(response))
+        })
+        .catch((e: Common.Error<any>) => {
+          dispatch(this.action.movie.showing.fetch.failed({ message: e.message }))
+        })
       // }, (e: Common.Error<any>) => {
       //   dispatch(this.action.movie.showing.fetch.failed({ message: e.message }))
       // });
