@@ -9,7 +9,7 @@ export class AppReducerCombiner extends ReduxReducerCombiner {
     super(null);
   }
 
-  protected ProvideReducers(): any {
+  protected ProvideReducers() {
     return {
       movie: this.movieReducerCombiner
     };

@@ -12,7 +12,7 @@ export class MovieReducerCombiner extends ReduxReducerCombiner {
     super(action);
   }
 
-  protected ProvideReducers(): any {
+  protected ProvideReducers() {
     return {
       coming: MovieComingReducer,
       showing: MovieShowingReducer,
