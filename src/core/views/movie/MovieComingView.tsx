@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { width, height, totalSize } from 'react-native-dimension'
 import FlipCard from 'react-native-flip-card'
-import Button from 'react-native-button'
+import { Button } from 'react-native-elements'
 import * as Styles from '../assets/styles'
 import { MovieErrorView } from './MovieErrorView'
 import { CircleImage } from '../common'
@@ -146,12 +146,16 @@ export class MovieComingView extends React.Component<any> {
                     <Text style={Styles.showingMovie.movieSubHeader}>{rowData.more.data[1].name}</Text>
                   </View>
                   <Button
-                    style={Styles.showingMovie.buyButton}
-                    containerStyle={Styles.showingMovie.buyButtonContainer}
+                    raised
+                    title={rowData.more.data[1].name}
+                    icon={{ name: 'envira', type: 'font-awesome' }}
+                    textStyle={Styles.showingMovie.buyButton}
+                    buttonStyle={Styles.showingMovie.buyButtonContainer}
+                    borderRadius={4}
+                    containerViewStyle={[Styles.common.noMarginLeftAndRight]}
+                    component={TouchableOpacity}
                     onPress={() => this.props.onPreviewButtonPress(rowData.more.data[1].link)}
-                  >
-                    {rowData.more.data[1].name}
-                  </Button>
+                  />
                 </View>
               </View>
 

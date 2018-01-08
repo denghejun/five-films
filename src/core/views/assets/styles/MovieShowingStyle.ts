@@ -39,16 +39,12 @@ export const showingMovie = StyleSheet.create({
     fontSize: 14
   },
   buyButtonContainer: {
-    padding: 5,
     height: 35,
-    overflow: 'hidden',
-    borderRadius: 4,
     backgroundColor: 'orange',
-    alignItems: 'center',
-    justifyContent: 'center'
+    borderRadius: 4
   },
   buyButtonContainerFlex: {
-    flex: 1,
+    // flex: 1,
     padding: 5,
     height: 35,
     overflow: 'hidden',

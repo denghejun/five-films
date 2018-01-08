@@ -11,7 +11,7 @@ export class UserDetailView extends React.Component<any> {
   render() {
     return (
       <View style={Styles.common.centerContainer}>
-        <Image style={{ flex: 1, width: width(100), height: height(100) }} source={{ uri: 'https://loremflickr.com/' + width(100) + '/' + height(100) + '/romance' }} />
+        <Image style={{ flex: 1, width: width(100), height: height(100) }} source={{ uri: 'https://loremflickr.com/' + width(100) + '/' + height(100) + '/sky' }} />
       </View>
     );
   }

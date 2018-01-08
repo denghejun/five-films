@@ -13,7 +13,7 @@ export class DrawerContentView extends React.Component<any> {
         }}>
           <Image
             style={{ flex: 1, height: height(100), width:width(70) }}
-            source={{ uri: 'https://loremflickr.com/' + width(70) + '/' + height(100) + '/city' }} />
+            source={{ uri: 'https://loremflickr.com/' + width(70) + '/' + height(100) + '/stone' }} />
         </TouchableOpacity>
       </View>
     );

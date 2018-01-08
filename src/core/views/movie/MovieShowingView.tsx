@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { width, height, totalSize } from 'react-native-dimension'
 import FlipCard from 'react-native-flip-card'
 import * as Styles from '../assets/styles'
-import Button from 'react-native-button'
+import { Button } from 'react-native-elements'
 import { MovieErrorView } from './MovieErrorView'
 import { CircleImage } from '../common'
 import {
@@ -134,19 +134,26 @@ export class MovieShowingView extends React.Component<any> {
                   </View>
                   <View style={Styles.showingMovie.buttonView}>
                     <Button
-                      style={Styles.showingMovie.buyButton}
-                      containerStyle={[Styles.showingMovie.buyButtonContainerFlex]}
+                      raised
+                      title={rowData.more.data[0].name}
+                      textStyle={Styles.showingMovie.buyButton}
+                      buttonStyle={Styles.showingMovie.buyButtonContainerFlex}
+                      borderRadius={4}
+                      containerViewStyle={[Styles.common.noMarginLeftAndRight, Styles.common.container]}
+                      component={TouchableOpacity}
                       onPress={() => this.props.onBuyButtonPress(rowData.more.data[0].link)}
-                    >
-                      {rowData.more.data[0].name}
-                    </Button>
+                    />
+
                     <Button
-                      style={Styles.showingMovie.buyButton}
-                      containerStyle={[Styles.showingMovie.buyButtonContainerFlex, Styles.common.marginLeft_5]}
+                      raised
+                      title={rowData.more.data[2].name}
+                      textStyle={Styles.showingMovie.buyButton}
+                      buttonStyle={[Styles.showingMovie.buyButtonContainerFlex]}
+                      borderRadius={4}
+                      containerViewStyle={[Styles.common.container, Styles.common.marginLeft_5, Styles.common.noMarginRight]}
+                      component={TouchableOpacity}
                       onPress={() => this.props.onBuyButtonPress(rowData.more.data[2].link)}
-                    >
-                      {rowData.more.data[2].name}
-                    </Button>
+                    />
                   </View>
 
                 </View>

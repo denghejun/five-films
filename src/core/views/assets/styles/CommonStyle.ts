@@ -42,5 +42,15 @@ export const common = StyleSheet.create({
     height: 100,
     borderRadius: 50,
     width: 100
+  },
+  noMarginLeft: {
+    marginLeft: 0
+  },
+  noMarginRight: {
+    marginRight: 0
+  },
+  noMarginLeftAndRight: {
+    marginLeft: 0,
+    marginRight: 0
   }
 })
