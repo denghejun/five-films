@@ -9,7 +9,7 @@ import { CircleImage } from '../common'
 export class MovieSearchView extends React.Component<any> {
   static navigationOptions = ({ navigation }) => ({
     title: '电影搜索',
-    headerStyle: { backgroundColor: 'lightskyblue' },
+    headerStyle: { backgroundColor: 'deepskyblue' },
     headerLeft: <CircleImage onPress={() => {
       navigation.navigate('DrawerToggle');
     }} sizeMode='small' source={{ uri: 'https://loremflickr.com/100/100/girl' }} />,

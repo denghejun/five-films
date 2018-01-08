@@ -2,6 +2,7 @@ import { ReduxViewContainer, injectable, inject } from 'react-native-modular-boo
 import { ServiceType } from '@colorfulwindmill/five-films-interface'
 import { Dispatch } from 'react-redux'
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation'
+import { width, height, totalSize } from 'react-native-dimension'
 
 @injectable()
 export class HomeContainer extends ReduxViewContainer<any> {
@@ -48,6 +49,7 @@ export class HomeContainer extends ReduxViewContainer<any> {
         })
       }
     }, {
+        drawerWidth: width(70),
         drawerOpenRoute: 'DrawerOpen',
         drawerCloseRoute: 'DrawerClose',
         drawerToggleRoute: 'DrawerToggle',

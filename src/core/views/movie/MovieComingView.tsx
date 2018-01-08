@@ -39,7 +39,7 @@ export class MovieComingView extends React.Component<any> {
     //      </LinearGradient>
     // },
     title: '即将上映',
-    headerStyle: { backgroundColor: 'orange' },
+    headerStyle: { backgroundColor: 'coral' },
     headerLeft: <CircleImage onPress={() => {
       navigation.navigate('DrawerToggle');
     }} sizeMode='small' source={{ uri: 'https://loremflickr.com/100/100/girl' }} />,
