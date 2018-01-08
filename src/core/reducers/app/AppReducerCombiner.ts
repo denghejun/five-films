@@ -6,14 +6,12 @@ export class AppReducerCombiner extends ReduxReducerCombiner {
   constructor(
     @inject(ServiceType.TYPE_REDUCER_COMBINER.MOVIE) private readonly movieReducerCombiner: ReduxReducerCombiner
   ) {
-    super();
+    super(null);
   }
 
-  protected ProviderChildrenReducer(): any {
+  protected ProvideReducers(): any {
     return {
-      app: combineReducers({
-        movie: this.movieReducerCombiner.Combine()
-      })
+      movie: this.movieReducerCombiner
     };
   }
 }

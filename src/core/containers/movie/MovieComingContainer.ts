@@ -40,8 +40,8 @@ export class MovieComingContainer extends ReduxViewContainer<any> {
       rowHasChanged: (r1, r2) => r1 !== r2
     })
 
-    if (state.app.movie.coming.movies) {
-      return dataSource.cloneWithRows(state.app.movie.coming.movies)
+    if (state.movie.coming.movies) {
+      return dataSource.cloneWithRows(state.movie.coming.movies)
     } else {
       return dataSource;
     }
@@ -62,10 +62,10 @@ export class MovieComingContainer extends ReduxViewContainer<any> {
   protected MapStateToProps(initialState: any, ownProps: any): any {
     return {
       comingMovieDataSource: this.getComingMovies(initialState),
-      isLoading: initialState.app.movie.coming.isLoading,
-      hasError: initialState.app.movie.coming.hasError,
-      movieItemFlipStates: initialState.app.movie.coming.movieItemFlipStates,
-      errorMessage: initialState.app.movie.coming.errorMessage
+      isLoading: initialState.movie.coming.isLoading,
+      hasError: initialState.movie.coming.hasError,
+      movieItemFlipStates: initialState.movie.coming.movieItemFlipStates,
+      errorMessage: initialState.movie.coming.errorMessage
     }
   }
 

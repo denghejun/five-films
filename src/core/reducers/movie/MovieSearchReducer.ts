@@ -1,12 +1,7 @@
 import { injectable, inject, ReduxReducer } from 'react-native-modular-bootstrapper'
 import { ServiceType } from '@colorfulwindmill/five-films-interface'
 
-@injectable()
 export class MovieSearchReducer extends ReduxReducer {
-  constructor( @inject(ServiceType.TYPE_ACTION.MOVIE) action) {
-    super(action);
-  }
-
   protected ProvideInitState(): any {
     return {
       isInit: true,
@@ -17,18 +12,18 @@ export class MovieSearchReducer extends ReduxReducer {
       isOpenModal: false
     };
   }
-  protected ProvideActionHandler(): any {
+  protected ProvideActionHandler(action): any {
     return {
-      [this.action.movie.search.fetch.start]: (state, action) => {
+      [action.movie.search.fetch.start]: (state, action) => {
         return Object.assign({}, state, {
-          isInit:false,
+          isInit: false,
           errorMessage: undefined,
           isLoading: true,
           isOpenModal: false,
           data: undefined
         });
       },
-      [this.action.movie.search.fetch.success]: (state, action) => {
+      [action.movie.search.fetch.success]: (state, action) => {
         return Object.assign({}, state, {
           isLoading: false,
           isOpenModal: true,
@@ -37,7 +32,7 @@ export class MovieSearchReducer extends ReduxReducer {
           data: action.payload.result
         });
       },
-      [this.action.movie.search.fetch.failed]: (state, action) => {
+      [action.movie.search.fetch.failed]: (state, action) => {
         return Object.assign({}, state, {
           isLoading: false,
           isOpenModal: false,
@@ -46,12 +41,12 @@ export class MovieSearchReducer extends ReduxReducer {
           data: undefined
         });
       },
-      [this.action.movie.search.modal.open]: (state, action) => {
+      [action.movie.search.modal.open]: (state, action) => {
         return Object.assign({}, state, {
           isOpenModal: true
         });
       },
-      [this.action.movie.search.modal.close]: (state, action) => {
+      [action.movie.search.modal.close]: (state, action) => {
         return Object.assign({}, state, {
           isOpenModal: false
         });
