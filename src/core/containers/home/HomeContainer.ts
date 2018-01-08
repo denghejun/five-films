@@ -9,11 +9,11 @@ export class HomeContainer extends ReduxViewContainer<any> {
   private readonly mainNavigation = this.CreateMainNavigation();
   constructor(
     @inject(ServiceType.TYPE_VIEW.HOME) view,
-    @inject(ServiceType.TYPE_CONTAINER.MOVIE_COMING) private readonly movieComingContainerConnectedView,
-    @inject(ServiceType.TYPE_CONTAINER.MOVIE_SHOWING) private readonly movieShowingContainerConnectedView,
-    @inject(ServiceType.TYPE_CONTAINER.MOVIE_SEARCH) private readonly movieSearchContainerConnectedView,
-    @inject(ServiceType.TYPE_CONTAINER.DRAWER_CONTENT) private readonly drawerContainerConnectedView,
-    @inject(ServiceType.TYPE_CONTAINER.USER_DETAIL) private readonly userDetailContainerConnectedView
+    @inject(ServiceType.TYPE_CONTAINER.MOVIE_COMING) private readonly movieComingContainer,
+    @inject(ServiceType.TYPE_CONTAINER.MOVIE_SHOWING) private readonly movieShowingContainer,
+    @inject(ServiceType.TYPE_CONTAINER.MOVIE_SEARCH) private readonly movieSearchContainer,
+    @inject(ServiceType.TYPE_CONTAINER.DRAWER_CONTENT) private readonly drawerContainer,
+    @inject(ServiceType.TYPE_CONTAINER.USER) private readonly userContainers
   ) {
     super(view);
   }
@@ -25,13 +25,13 @@ export class HomeContainer extends ReduxViewContainer<any> {
           movie: {
             screen: TabNavigator({
               coming: {
-                screen: this.movieComingContainerConnectedView,
+                screen: this.movieComingContainer,
               },
               showing: {
-                screen: this.movieShowingContainerConnectedView,
+                screen: this.movieShowingContainer,
               },
               search: {
-                screen: this.movieSearchContainerConnectedView,
+                screen: this.movieSearchContainer,
               }
             }, {
                 swipeEnabled: true,
@@ -44,7 +44,7 @@ export class HomeContainer extends ReduxViewContainer<any> {
               })
           },
           user: {
-            screen: this.userDetailContainerConnectedView
+            screen: this.userContainers.userLogin
           }
         })
       }
@@ -53,7 +53,7 @@ export class HomeContainer extends ReduxViewContainer<any> {
         drawerOpenRoute: 'DrawerOpen',
         drawerCloseRoute: 'DrawerClose',
         drawerToggleRoute: 'DrawerToggle',
-        contentComponent: this.drawerContainerConnectedView
+        contentComponent: this.drawerContainer
       })
   }
 

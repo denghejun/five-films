@@ -3,11 +3,11 @@ import { ServiceType } from '@colorfulwindmill/five-films-interface'
 import { Dispatch } from 'react-redux'
 
 @injectable()
-export class UserDetailContainer extends ReduxViewContainer<any> {
+export class UserLoginContainer extends ReduxViewContainer<any> {
   constructor(
     @inject(ServiceType.TYPE_VIEW.USER) view
   ) {
-    super(view.userDetail);
+    super(view.userLogin);
   }
 
   protected MapStateToProps(initialState: any, ownProps: any): any {
