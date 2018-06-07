@@ -4,6 +4,7 @@ image_resource:
   type: docker-image
   source: {repository: node, tag: "6"}
 inputs:
-- name: scripts-path
+- name: repo
+  path: repo/src/pipeline
 run:
-  path: ./scripts-path/install.sh
+  path: ./pipeline/scripts/install.sh
