@@ -7,4 +7,4 @@ inputs:
 - name: repo
   path: repo/src/pipeline
 run:
-  path: ./pipeline/scripts/install.sh
+  path: ./scripts/install.sh
