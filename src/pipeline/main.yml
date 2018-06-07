@@ -12,7 +12,15 @@ jobs:
   plan:
   - get: repo
     trigger: true
-  - task: Initialize
+  - task: chmod
+    config:
+      platform: linux
+      inputs:
+        - name: repo
+      run:
+        path: chmod
+        args: [+x repo]
+  - task: init
     file: repo/src/pipeline/tasks/init.yml
   # - task: Testing
   #   config:
