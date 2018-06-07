@@ -1,0 +1,28 @@
+---
+resources:
+- name: repo
+  type: git
+  source:
+    uri: https://github.com/denghejun/five-films.git
+    branch: master
+
+jobs:
+- name: five films pipeline
+  public: true
+  plan:
+  - get: repo
+    trigger: true
+  - task: Initialize
+    file: repo/src/pipeline/tasks/init.yml
+  # - task: Testing
+  #   config:
+  #     platform: linux
+  #     image_resource:
+  #       type: docker-image
+  #       source: {repository: node, tag: "6"}
+  #     inputs:
+  #       - name: repo
+  #         path: .
+  #     run:
+  #       path: npm
+  #       args: [test]
