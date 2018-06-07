@@ -5,6 +5,5 @@ image_resource:
   source: {repository: node, tag: "6"}
 inputs:
 - name: repo
-  path: repo/src/pipeline
 run:
-  path: ./scripts/install.sh
+  path: repo/src/pipeline/scripts/install.sh
