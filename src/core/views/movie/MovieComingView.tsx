@@ -24,20 +24,6 @@ import {
 
 export class MovieComingView extends React.Component<any> {
   static navigationOptions = ({ navigation }) => ({
-    // header: (props) => {
-    //   return <LinearGradient
-    //      colors={['#4c669f', '#3b5998', '#192f6a']}
-    //      style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
-    //      <Text
-    //         style={{
-    //           backgroundColor: 'transparent',
-    //           fontSize: 15,
-    //           color: '#fff',
-    //         }}>
-    //         {123}
-    //       </Text>
-    //      </LinearGradient>
-    // },
     title: '即将上映',
     headerStyle: { backgroundColor: 'coral' },
     headerLeft: <CircleImage onPress={() => {
