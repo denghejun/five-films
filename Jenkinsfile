@@ -1,9 +1,22 @@
 pipeline {
-    agent { any { }  }
+    agent {
+    label: 'master'
+    }
+
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'echo --version'
+                echo 'npm --version'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
