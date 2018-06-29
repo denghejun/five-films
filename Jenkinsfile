@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'npm --version'
+                sh 'npm --version'
             }
         }
         stage('Test') {
