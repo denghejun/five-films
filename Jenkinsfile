@@ -1,23 +1,22 @@
 pipeline {
     agent {
-
       label 'master'
     }
 
     stages {
         stage('Build') {
             steps {
-                sh 'npm --version'
+                sh 'npm install'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..ahahahahhhh..'
+                sh 'npm run test`'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh 'exp start -c'
             }
         }
     }

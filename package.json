@@ -10,7 +10,7 @@
   },
   "main": "bootstrap.js",
   "scripts": {
-    "test": "node ./node_modules/jest/bin/jest.js --watch"
+    "test": "node ./node_modules/jest/bin/jest.js --ci "
   },
   "jest": {
     "preset": "jest-expo-ts",
