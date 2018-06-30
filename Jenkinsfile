@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'exp login -u hejun -p qq5802248'
+                ## sh 'exp login -u hejun -p qq5802248'
                 sh 'exp start -c'
             }
         }
