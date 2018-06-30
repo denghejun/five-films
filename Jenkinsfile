@@ -4,11 +4,6 @@ pipeline {
     }
 
     stages {
-        stage('set npm version') {
-            steps {
-                sh 'nvm use 6.11.3'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'npm install'
