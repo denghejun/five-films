@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'node -v&&npm install'
+                sh 'npm install -g exp'
+                sh 'npm install'
             }
         }
         stage('Test') {
@@ -16,6 +17,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh 'exp login -u hejun -p qq5802248'
                 sh 'exp start -c'
             }
         }
