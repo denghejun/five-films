@@ -1,6 +1,6 @@
 pipeline {
     agent {
-    
+
       label 'master'
     }
 
@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing..ahahahahhhh..'
             }
         }
         stage('Deploy') {
