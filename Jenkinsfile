@@ -4,6 +4,16 @@ pipeline {
     }
 
     stages {
+        stage('ngrok proxy') {
+            steps {
+                sh 'ngrok http 8181'
+            }
+        }
+        stage('set npm version') {
+            steps {
+                sh 'nvm use 6.11.3'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'npm install'
