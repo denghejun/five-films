@@ -26,12 +26,12 @@
   },
   "dependencies": {
     "@colorfulwindmill/five-films-interface": "^1.2.2",
-    "@colorfulwindmill/five-films-service": "v1.1.9",
-    "expo": "^41.0.0",
+    "@colorfulwindmill/five-films-service": "v1.2.2",
+    "expo": "41.0.1",
     "expo-linear-gradient": "~9.1.0",
     "expo-permissions": "~12.0.1",
     "metro": "^0.66.0",
-    "react-native": "^0.55.4",
+    "react-native": "0.64.2",
     "react-native-dimension": "^1.0.6",
     "react-native-elements": "^0.18.5",
     "react-native-flip-card": "^3.5.2",
@@ -40,11 +40,11 @@
     "react-native-modular-bootstrapper": "^3.3.8",
     "react-native-textinput-effects": "^0.4.2",
     "react-navigation": "^1.0.0-beta.23",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "redux-actions": "^2.2.1",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "react-redux": "7.2.4",
+    "redux": "4.1.0",
+    "redux-actions": "2.6.5",
+    "redux-logger": "3.0.6",
+    "redux-thunk": "2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
