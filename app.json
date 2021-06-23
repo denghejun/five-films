@@ -4,7 +4,7 @@
     "description": "No description",
     "slug": "five-films",
     "privacy": "public",
-    "sdkVersion": "23.0.0",
+    "sdkVersion": "41.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
@@ -18,10 +18,7 @@
       "icon": "./src/assets/icons/notification-icon.png",
       "color": "#000000"
     },
-    "loading": {
-      "icon": "./src/assets/icons/loading-icon.png",
-      "hideExponentText": false
-    },
+
     "packagerOpts": {
       "config": "rn-cli.config.js",
       "assetExts": [

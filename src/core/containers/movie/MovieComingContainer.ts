@@ -1,9 +1,9 @@
 import { ReduxViewContainer, injectable, inject } from 'react-native-modular-bootstrapper'
 import { ServiceType, Movie, Location, Common } from '@colorfulwindmill/five-films-interface'
 import { Dispatch } from 'react-redux'
-import { Permissions } from 'expo'
+import * as Permissions from 'expo-permissions'
 import { ListView } from 'react-native'
-
+ 
 @injectable()
 export class MovieComingContainer extends ReduxViewContainer<any> {
   private timeId;

@@ -5,7 +5,7 @@ import { Button } from 'react-native-elements'
 import * as Styles from '../assets/styles'
 import { MovieErrorView } from './MovieErrorView'
 import { CircleImage } from '../common'
-import { LinearGradient } from 'expo'
+import { LinearGradient } from 'expo-linear-gradient'
 import {
   View,
   Text,
